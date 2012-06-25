@@ -1,0 +1,41 @@
+<h2><%= @escape.title %></h2>
+<p>Here are some songs Last.fm users from <%= @metro.name %> like to listen to to make your roadtrip more personal:</p>
+<div class="songs">
+  <table>
+    <thead>
+      <tr>
+        <th>Artist</th>
+        <th>Song</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @metro.unique_songs.each do |song| %>
+      <tr>
+        <td><%= song.artist %></td>
+        <td><%= link_to song.title, song.url, :target => "_blank" %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<p>Too underground for you? Here are the popular songs Last.fm users from <%= @metro.name %> are liking:
+<div class="songs">
+  <table>
+    <thead>
+      <tr>
+        <th>Artist</th>
+        <th>Song</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @metro.popular_songs.each do |song| %>
+      <tr>
+        <td><%= song.artist %></td>
+        <td><%= link_to song.title, song.url, :target => "_blank" %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<%= gmaps4rails(@json) %>
+<%= yield :scripts %>

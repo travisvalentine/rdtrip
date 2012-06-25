@@ -1,0 +1,2 @@
+class EscapesController < ApplicationController
+end

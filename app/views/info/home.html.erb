@@ -1,0 +1,210 @@
+<%= content_for(:linked_in) do %>
+  <script type="text/javascript" src="http://platform.linkedin.com/in.js">
+    api_key: qepzv0p8rt3e
+    authentication: true
+  </script>
+<% end %>
+<%= content_for(:header) do %>
+  <script type="text/javascript">        
+    window.onload = function () {
+      var current = null;
+      var map = {};
+      var m = {};       
+      var attr = {
+        fill: "#333",
+        stroke: "#888",
+        "stroke-width": .5,
+        "stroke-linejoin": "round"
+      };        
+      var map = {};
+      var R = Raphael("holder_570");
+      render_map(R,map,attr);   
+      for (var state in map) {                      
+                map[state].color = Raphael.getColor();
+                (function (st, state) {
+          st[0].style.cursor = "pointer";
+          st[0].onmouseover = function () {
+            current && map[current].animate({fill: "#333", stroke: "#666"}, 300);
+            st.animate({fill: st.color, stroke: "#ccc"}, 300);
+            R.safari();
+            current = state;
+          };
+          st[0].onmouseout = function () {
+            st.animate({fill: "#333", stroke: "#666"}, 300);
+            R.safari();
+          };
+          
+          st[0].onclick = function () {
+            alert(state);
+          };
+        })(map[state], state);
+      }; // end for
+      
+      
+
+      function lon2x(lon) {
+          var xfactor = 1.5255;
+          var xoffset = 263.58;
+          var x = (lon * xfactor) + xoffset;
+          return x;
+      }
+      function lat2y(lat) {
+        var yfactor = -1.5255;
+        var yoffset = 130.5;
+        var y = (lat * yfactor) + yoffset;
+        return y;
+      }
+
+      var city_attr = {
+        fill: "#0f0",
+        stroke: "none",
+        opacity: .3
+      };
+      function plot(lat,lon,size) {
+        size = size * .5 + 4;
+        return R.circle(lon2x(lon), lat2y(lat), size).attr(city_attr);
+      }
+
+
+      var cities = {};
+
+      cities.Afghanistan  = plot(37.9069562,-78.8527841,1);
+      cities.Azerbaijan   = plot(39.2536975,-77.9335429,1);
+      cities.Bolivia      = plot(41.707031,-73.47237,1);
+      cities.Brazil       = plot(41.0434,-72.2416,1);
+      cities.Cameroon     = plot(42.185741,-74.19479,1);
+      cities.Colombia     = plot(14.096,-60.928,1);
+      cities.DRC          = plot(18.0086416,-76.7859076,1);
+      cities.DR           = plot(37.9721909,23.726174,1);
+      cities.Ecuador      = plot(41.9072289,12.487806,1);
+      cities.Georgia      = plot(20.7775,-86.9557,1);
+      cities.Guatemala    = plot(47.516024,19.0750157,1);
+      cities.Indonesia    = plot(20.764,-86.964,1);
+      cities.Iraq         = plot(16.8396,-88.2709,1);
+      cities.Ivory_Coast  = plot(22.8777,-109.9035,1);
+      cities.Kazakhstan   = plot(23.0446,-109.6971,1);
+      cities.Kenya        = plot(39.9611712,116.4683526,1);
+      cities.Kyrgyzstan   = plot(43.0855464,-79.0843665,1);
+      cities.Libya        = plot(44.5192603,-85.9906554,1);
+      cities.Mexico       = plot(42.940526,-72.856729,1);
+      cities.Nepal        = plot(45.495997,-73.5805397,1);
+      cities.Nigeria      = plot(34.9308688,-83.6896923,1);
+      cities.Pakistan     = plot(28.801546,-81.6425103,1);
+      cities.Philippines  = plot(26.6168109,-80.048738,1);
+      cities.Russia       = plot(29.9402619,-90.0748236,1);
+      cities.Somalia      = plot(32.7471031,-97.3250713,1);
+      cities.Sri_Lanka    = plot(39.639957,-106.37121,1);
+      cities.Syria        = plot(40.5222815,-111.4844942,1);
+      cities.Tunisia      = plot(33.639441,-111.896969,1);
+      cities.Turkmenistan = plot(35.62317,-120.692842,1);
+      cities.Uganda       = plot(33.831334,-116.54503,1);
+      cities.Venezuela    = plot(33.8778684,-117.8824378,1);
+      cities.Yemen        = plot(36.7905336,-119.3086123,1);
+      cities.Zimbabwe     = plot(47.042536,-122.901973,1);
+      cities.test         = plot(44.3671561,-121.1403059,1);
+      cities.test         = plot(48.367307,-123.7313433,1);
+      cities.test         = plot(39.7931409,-120.6377465,1);
+      cities.test         = plot(38.4752864,-122.7283842,1);
+
+      var current_city = null;
+      var city_box = null;
+      for (var city in cities) {                      
+                map[state].color = Raphael.getColor();
+                (function (st, city) {
+          st[0].style.cursor = "pointer";
+          st[0].onmouseover = function () {
+            current_city && cities[current_city].animate({fill: "#0f0", opacity: .3}, 300);
+            st.animate({fill: "#0f0", opacity: 1}, 300);
+            R.safari();
+            current_city = city;
+          };
+          st[0].onmouseout = function () {
+            st.animate({fill: "#0f0", opacity: .3}, 300);
+            R.safari();
+          };
+          
+          st[0].onclick = function () {
+            if (t = document.getElementById(city_box)) { t.style.display = "none"; }
+            if (t = document.getElementById(city)) { t.style.display = "block"; }
+            city_box = city;
+          };
+
+
+          if (t = document.getElementById(city)) {
+              t.style.left = cities[city].attr('cx') + 'px';
+              t.style.top = cities[city].attr('cy') -20 + 'px';
+          }
+
+        })(cities[city], city);
+      }; // end for
+
+
+    };
+  </script>
+<% end %>
+<%= content_for(:header) do %>
+  <script type="text/javascript">
+    $(function(){
+      if (document.cookie == "") {
+        // alert('empty');
+        $('#escape_select').hide();
+      } else {
+        // alert('present');
+        $('#escape_select').show();
+      }
+    });
+    $(function(){
+      $('select').live('change',function(){
+        $(this).closest('form#song_selector').submit();
+      });
+    });
+  </script>
+<% end %>
+
+  <h1>rdtrip</h1>
+  <p>login with crappy linkedin</p>
+  <script type="in/Login">
+  <%= current_user %>
+    Welcome to rdtrip, <?js= firstName ?>!
+  </script>
+  <div id="escape_select">
+  <%= form_tag url_for(:controller => 'songs', :action => 'index'), :method => 'get', :id => "song_selector" do %>
+    <%= select_tag "escapes", options_for_select([["Choose your escape", ""]]+ Escape.active.collect {|escape| [ escape.title, escape.id ] } ) %>
+  <% end %>
+  </div>
+  <div id="holder_570" style="position:relative;">
+    <div id="Afghanistan" class="city_hover"><span class="c_label"><strong><strong>Afghanistan: 20</strong></strong><br />2 other</span></div>
+    <div id="Azerbaijan" class="city_hover"><span class="c_label"><strong>Azerbaijan: 2</strong><br /></span></div>
+    <div id="Bolivia" class="city_hover"><span class="c_label"><strong>Bolivia: 1</strong><br />1 other</span></div>
+    <div id="Brazil" class="city_hover"><span class="c_label"><strong>Brazil: 3</strong><br /></span></div>
+    <div id="Cameroon" class="city_hover"><span class="c_label"><strong>Cameroon: 1</strong><br /></span></div>
+    <div id="Colombia" class="city_hover"><span class="c_label"><strong>Colombia: 1</strong><br /></span></div>
+    <div id="DRC" class="city_hover"><span class="c_label"><strong>Democratic Republic of Congo: 2</strong><br />1 other</span></div>
+    <div id="DR" class="city_hover"><span class="c_label"><strong>Dominican Republic: 1</strong><br />1 other</span></div>
+    <div id="Ecuador" class="city_hover"><span class="c_label"><strong>Ecuador: 1</strong><br /></span></div>
+    <div id="Georgia" class="city_hover"><span class="c_label"><strong>Georgia: 1</strong><br /></span></div>
+    <div id="Guatemala" class="city_hover"><span class="c_label"><strong>Guatemala: 1</strong><br /></span></div>
+    <div id="Indonesia" class="city_hover"><span class="c_label"><strong>Indonesia: 3</strong><br />3 other</span></div>
+    <div id="Iraq" class="city_hover"><span class="c_label"><strong>Iraq: 25</strong><br />18 other</span></div>
+    <div id="Ivory_Coast" class="city_hover"><span class="c_label"><strong>Ivory Coast: 1</strong><br />1 other</span></div>
+    <div id="Kazakhstan" class="city_hover"><span class="c_label"><strong>Kazakhstan: 1</strong><br /></span></div>
+    <div id="Kenya" class="city_hover"><span class="c_label"><strong>Kenya: 1</strong><br />1 other</span></div>
+    <div id="Kyrgyzstan" class="city_hover"><span class="c_label"><strong>Kyrgyzstan: 1</strong><br /></span></div>
+    <div id="Libya" class="city_hover"><span class="c_label"><strong>Libya: 7</strong><br /></span></div>
+    <div id="Mexico" class="city_hover"><span class="c_label"><strong>Mexico: 24</strong><br />14 other</span></div>
+    <div id="Nepal" class="city_hover"><span class="c_label"><strong>Nepal: 4</strong><br />3 other</span></div>
+    <div id="Nigeria" class="city_hover"><span class="c_label"><strong>Nigeria: 3</strong><br /></span></div>
+    <div id="Pakistan" class="city_hover"><span class="c_label"><strong>Pakistan: 17</strong><br />6 other</span></div>
+    <div id="Philippines" class="city_hover"><span class="c_label"><strong>Philippines: 35</strong><br />32 other</span></div>
+    <div id="Russia" class="city_hover"><span class="c_label"><strong>Russia: 5</strong><br />1 other</span></div>
+    <div id="Somalia" class="city_hover"><span class="c_label"><strong>Somalia: 11</strong><br />1 other</span></div>
+    <div id="Sri_Lanka" class="city_hover"><span class="c_label"><strong>Sri Lanka: 6</strong><br /></span></div>
+    <div id="Syria" class="city_hover"><span class="c_label"><strong>Syria: 1</strong><br /></span></div>
+    <div id="Tunisia" class="city_hover"><span class="c_label"><strong>Tunisia: 1</strong><br /></span></div>
+    <div id="Turkmenistan" class="city_hover"><span class="c_label"><strong>Turkmenistan: 1</strong><br /></span></div>
+    <div id="Uganda" class="city_hover"><span class="c_label"><strong>Uganda: 1</strong><br /></span></div>
+    <div id="Venezuela" class="city_hover"><span class="c_label"><strong>Venezuela: 1</strong><br />1 other</span></div>
+    <div id="Yemen" class="city_hover"><span class="c_label"><strong>Yemen: 5</strong><br /></span></div>
+    <div id="Zimbabwe" class="city_hover"><span class="c_label"><strong>Zimbabwe: 2</strong><br />1 other</span></div>
+  </div>
+  <div id="footer">&nbsp;</div>
