@@ -6,8 +6,6 @@
 <% end %>
 <%= content_for(:header) do %>
   <%= javascript_include_tag "mapped_escapes" %>
-<% end %>
-<%= content_for(:header) do %>
   <script type="text/javascript">
     $(function(){
       if (document.cookie == "") {
@@ -29,7 +27,6 @@
   <h1>rdtrip</h1>
   <p>login with crappy linkedin</p>
   <script type="in/Login">
-  <%= current_user %>
     Welcome to rdtrip, <?js= firstName ?>!
   </script>
   <div id="escape_select">
