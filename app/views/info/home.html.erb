@@ -30,6 +30,12 @@
     Welcome to rdtrip, <?js= firstName ?>!
   </script>
   <div id="escape_select">
+  <%= form_tag escapes_path, :method => :get do %>
+    <p>
+      <%= text_field_tag :query, params[:query] %>
+      <%= submit_tag "Search", :name => nil %>
+    </p>
+  <% end %>
   <%= form_tag url_for(:controller => 'songs', :action => 'index'), :method => 'get', :id => "song_selector" do %>
     <%= select_tag "escapes", options_for_select([["Choose your escape", ""]]+ Escape.active.collect {|escape| [ escape.title, escape.id ] } ) %>
   <% end %>

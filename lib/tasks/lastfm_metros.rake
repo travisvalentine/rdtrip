@@ -13,6 +13,7 @@ task :get_metros => :environment do
   doc.xpath('//metros/metro').each do |metro|
     metro_name, metro_country = metro.xpath('./name','./country',).map{|x| x.text.strip}
     db_metro = Metro.find_or_initialize_by_name(metro_name)
+    puts "Adding metro for #{metro_name}"
     db_metro.name_formatted = metro_name.split.join("%20")
     db_metro.country = metro_country
     db_metro.country_formatted = metro_country.split.join("%20")

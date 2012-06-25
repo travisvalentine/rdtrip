@@ -1,7 +1,9 @@
 class Metro < ActiveRecord::Base
-  # attr_accessible :title, :body
+  attr_accessible :name, :country, :latitude, :longitude
 
-  geocoded_by :city
+  geocoded_by :name
+
+  after_validation :geocode
 
   has_many :popular_songs
   has_many :unique_songs

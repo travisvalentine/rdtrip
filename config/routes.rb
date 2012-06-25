@@ -4,6 +4,8 @@ Roadtrip::Application.routes.draw do
 
   resources :songs, :only => :index
 
+  resources :escapes, :only => :index
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
