@@ -1,5 +1,5 @@
 require 'simplecov'
-SimpleCov.start 'rails'
+SimpleCov.start
 
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
@@ -33,10 +33,5 @@ RSpec.configure do |config|
   # automatically. This will be the default behavior in future versions of
   # rspec-rails.
   config.infer_base_class_for_anonymous_controllers = false
-
-  # Configure Fabrication
-  Fabrication.configure do |config|
-    config.fabricator_dir = "spec/factories"
-  end
 
 end

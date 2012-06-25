@@ -34,6 +34,6 @@ group :development, :test do
   gem 'rack-perftools_profiler', :require => 'rack/perftools_profiler'
   gem 'reek', :git => "git://github.com/mvz/reek.git", :branch => "ripper_ruby_parser-2"
   gem 'rspec-rails'
+  gem 'simplecov', :require => false
   gem 'sqlite3'
-  gem 'simplecov', :require => false, :group => :test
 end
