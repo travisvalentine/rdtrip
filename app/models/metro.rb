@@ -14,4 +14,8 @@ class Metro < ActiveRecord::Base
     "#{self.name}, #{self.city}"
   end
 
+  def address
+    "#{name}, #{country}"
+  end
+
 end
