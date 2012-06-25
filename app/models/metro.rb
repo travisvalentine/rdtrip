@@ -1,7 +1,7 @@
 class Metro < ActiveRecord::Base
   attr_accessible :name, :country, :latitude, :longitude
 
-  geocoded_by :name
+  geocoded_by :address
 
   after_validation :geocode
 

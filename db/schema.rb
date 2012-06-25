@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(:version => 20120622180840) do
     t.string   "state"
     t.string   "zipcode"
     t.string   "expiration"
-    t.string   "latitude"
-    t.string   "longitude"
+    t.float    "latitude"
+    t.float    "longitude"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
     t.string   "nearest_metro"

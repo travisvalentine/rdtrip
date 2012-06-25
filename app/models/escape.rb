@@ -3,8 +3,10 @@ class Escape < ActiveRecord::Base
 
   after_create :find_nearest_metro
 
-  include Tire::Model::Search
-  include Tire::Model::Callbacks
+  geocoded_by :address
+
+  # include Tire::Model::Search
+  # include Tire::Model::Callbacks
 
   def self.active
     where("expiration > ? OR expiration IS ?", Time.now.strftime("%B %d, %Y").to_date, "")
@@ -17,12 +19,20 @@ class Escape < ActiveRecord::Base
   end
 
   def find_nearest_metro
-    #for a given escape
-    #compare the escape's lat/long to every Metro's lat/long
-    #
-    #metro
-    #nearest_metro = [].sort.first
-    #metro.
+    0.upto(1000) do |mile_radius|
+      metro = Metro.near([self.latitude, self.longitude], mile_radius)
+      if metro.count == 1
+        set_metro_value_as(metro)
+      end
+    end
+  end
+
+  def set_metro_value_as(metro)
+    self.nearest_metro = metro.first.name
+  end
+
+  def address
+    "#{latitude} #{longitude}"
   end
 
 end

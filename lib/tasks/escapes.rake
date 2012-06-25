@@ -31,10 +31,15 @@ task :get_escapes => :environment do
     lat_long =  escape_doc.css('.directions a').map { |link| link['href'] }.join("").split("=")[-1]
 
     escape_latitude = lat_long.split(",")[0].strip
-    escape_longitude = lat_long.split(",")[1].strip
+    if lat_long.split(",")[1].nil?
+      escape_longitude = nil
+    else
+      escape_longitude = lat_long.split(",")[1].strip
+    end
 
     # Persist Escape from scraped data
     db_escape = Escape.find_or_initialize_by_title(escape_title)
+    puts "Saving escape for #{escape_title}"
     db_escape.location = escape_location
     db_escape.details = escape_details
     db_escape.price = escape_price
