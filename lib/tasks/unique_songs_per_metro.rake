@@ -9,7 +9,7 @@ task :get_unique_songs_for_metro => :environment do
     url = "http://ws.audioscrobbler.com/2.0/?method=geo.getmetrouniquetrackchart&country=#{metro.country}&metro=#{metro.name}&api_key=#{LAST_FM_API_KEY}"
     doc = Nokogiri::HTML(open(URI.escape(url)))
 
-    puts "Saving songs from #{metro.name}, #{metro.country}...\n ----------------------"
+    puts "Saving unique songs from #{metro.name}, #{metro.country}...\n ----------------------"
 
     doc.xpath('//toptracks/track').each do |track|
       song_title, song_lastfm_url, song_artist = track.xpath('./name','./url','./artist/name').map{|x| x.text.strip}

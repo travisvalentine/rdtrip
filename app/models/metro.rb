@@ -11,11 +11,11 @@ class Metro < ActiveRecord::Base
   acts_as_gmappable :process_geocoding => false
 
   def gmaps4rails_address
-    "#{self.name}, #{self.city}"
+    "#{self.name}, #{self.country}"
   end
 
   def address
-    "#{name}, #{country}"
+    "#{self.name}, #{self.country}"
   end
 
 end

@@ -9,17 +9,18 @@ class Escape < ActiveRecord::Base
   # include Tire::Model::Callbacks
 
   def self.active
-    where("expiration > ? OR expiration IS ?", Time.now.strftime("%B %d, %Y").to_date, "")
+    where("expiration > ? OR expiration IS ?",
+      Time.now.strftime("%B %d, %Y").to_date, "")
   end
 
-  def self.search(params)
-    tire.search do
-      query { string params[:query] if params[:query].present?}
-    end
-  end
+  # def self.search(params)
+  #   tire.search do
+  #     query { string params[:query] if params[:query].present?}
+  #   end
+  # end
 
   def find_nearest_metro
-    0.upto(1000) do |mile_radius|
+    0.upto(1500) do |mile_radius|
       metro = Metro.near([self.latitude, self.longitude], mile_radius)
       if metro.count == 1
         set_metro_value_as(metro)
@@ -29,6 +30,7 @@ class Escape < ActiveRecord::Base
 
   def set_metro_value_as(metro)
     self.nearest_metro = metro.first.name
+    self.save
   end
 
   def address
