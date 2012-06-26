@@ -4,7 +4,7 @@ class CreateEscapes < ActiveRecord::Migration
       t.string  :title
       t.string  :location
       t.string  :details
-      t.string  :price 
+      t.string  :price
       t.string  :phone
       t.string  :street
       t.string  :city

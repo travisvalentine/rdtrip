@@ -11,7 +11,7 @@ task :get_popular_songs_for_metro => :environment do
 
     doc = Nokogiri::HTML(open(URI.escape(url)))
 
-    puts "Saving songs from #{metro.name}, #{metro.country}...\n ----------------------"
+    puts "Saving popular songs from #{metro.name}, #{metro.country}...\n ----------------------"
 
     doc.xpath('//toptracks/track').each do |track|
       song_title, song_lastfm_url, song_artist = track.xpath('./name','./url','./artist/name').map{|x| x.text.strip}

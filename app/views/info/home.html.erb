@@ -1,9 +1,3 @@
-<%= content_for(:linked_in) do %>
-  <script type="text/javascript" src="http://platform.linkedin.com/in.js">
-    api_key: qepzv0p8rt3e
-    authentication: true
-  </script>
-<% end %>
 <%= content_for(:header) do %>
   <%= javascript_include_tag "mapped_escapes" %>
   <script type="text/javascript">
@@ -25,10 +19,11 @@
 <% end %>
 
   <h1>rdtrip</h1>
-  <p>login with crappy linkedin</p>
-  <script type="in/Login">
-    Welcome to rdtrip, <?js= firstName ?>!
-  </script>
+  <% if current_user %>
+    <p><%= link_to "Log out #{current_user.name}", logout_path %></p>
+  <% else %>
+    <p><%= link_to "login with crappy linkedin", "/auth/linkedin" %></p>
+  <% end %>
   <div id="escape_select">
   <%= form_tag escapes_path, :method => :get do %>
     <p>
