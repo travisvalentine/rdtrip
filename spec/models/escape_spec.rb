@@ -12,6 +12,12 @@ describe Escape do
   let!(:metro2)         { FactoryGirl.create(:metro, :latitude => 38.8951118,
                                                      :longitude => -77.0363658) }
 
+  describe "validations" do
+    it "is valid" do
+      escape.should be_valid
+    end
+  end
+
   describe ".active" do
 
     it "shows escapes with expiration dates in the future" do

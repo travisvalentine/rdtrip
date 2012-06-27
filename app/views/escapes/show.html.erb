@@ -1,5 +1,6 @@
 <h2><%= @escape.title %></h2>
 <p>Here are some songs Last.fm users from <%= @metro.name %> like to listen to to make your roadtrip more personal:</p>
+<p>Looks like <%= @metro.unique_songs.first.artist %> is popular here. <%= link_to "Click here", "http://www.last.fm/api/auth/?api_key=#{LAST_FM_API_KEY}&token=#{current_user.lastfm_auth_token.token}" %> for a last.fm playlist.
 <div class="songs">
   <table>
     <thead>

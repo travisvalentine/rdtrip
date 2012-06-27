@@ -1,43 +1,10 @@
 <%= content_for(:header) do %>
   <%= javascript_include_tag "mapped_escapes" %>
-  <script type="text/javascript">
-    $(function(){
-      if (document.cookie == "") {
-        // alert('empty');
-        $('#escape_select').hide();
-      } else {
-        // alert('present');
-        $('#escape_select').show();
-      }
-    });
-    $(function(){
-      $('select').live('change',function(){
-        $(this).closest('form#song_selector').submit();
-      });
-    });
-  </script>
 <% end %>
-
-  <h1>rdtrip</h1>
-  <% if current_user %>
-    <p><%= link_to "Log out #{current_user.name}", logout_path %></p>
-  <% else %>
-    <p><%= link_to "login with crappy linkedin", "/auth/linkedin" %></p>
+<h1>rdtrip</h1>
+<div id="holder_570" style="position:relative;">
+  <% Escape.all.each do |escape| %>
+    <%= content_tag(:div, content_tag(:span, content_tag(:strong, "#{escape.title}"), :class => "c_label"), :id => "#{escape.city.gsub(" ","_")}", :class => "city_hover") %>
   <% end %>
-  <div id="escape_select">
-  <%= form_tag escapes_path, :method => :get do %>
-    <p>
-      <%= text_field_tag :query, params[:query] %>
-      <%= submit_tag "Search", :name => nil %>
-    </p>
-  <% end %>
-  <%= form_tag url_for(:controller => 'songs', :action => 'index'), :method => 'get', :id => "song_selector" do %>
-    <%= select_tag "escapes", options_for_select([["Choose your escape", ""]]+ Escape.active.collect {|escape| [ escape.title, escape.id ] } ) %>
-  <% end %>
-  </div>
-  <div id="holder_570" style="position:relative;">
-    <% Escape.all.each do |escape| %>
-      <%= content_tag(:div, content_tag(:span, content_tag(:strong, "#{escape.title}"), :class => "c_label"), :id => "#{escape.city.gsub(" ","_")}", :class => "city_hover") %>
-    <% end %>
-  </div>
-  <div id="footer">&nbsp;</div>
+</div>
+<div id="footer">&nbsp;</div>
