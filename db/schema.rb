@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120626181011) do
+ActiveRecord::Schema.define(:version => 20120627030108) do
 
   create_table "escapes", :force => true do |t|
     t.string   "title"
@@ -30,6 +30,27 @@ ActiveRecord::Schema.define(:version => 20120626181011) do
     t.datetime "updated_at",    :null => false
     t.string   "nearest_metro"
     t.string   "country"
+  end
+
+  create_table "lastfm_auth_tokens", :force => true do |t|
+    t.string   "token"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "lastfm_session_keys", :force => true do |t|
+    t.string   "token"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "lastfm_tokens", :force => true do |t|
+    t.string   "token"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "metros", :force => true do |t|

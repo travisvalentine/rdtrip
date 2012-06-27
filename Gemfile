@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'faraday'
 gem 'geocoder'
 gem 'gmaps4rails'
 gem 'jquery-rails'

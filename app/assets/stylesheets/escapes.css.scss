@@ -1,3 +1,44 @@
 // Place all the styles related to the escapes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+select#escape_id { width: inherit; }
+
+div.songs { height: 400px; overflow-y: scroll; margin: 15px 0; }
+
+table { width: 100%;
+  thead {
+    th { text-align: left; font-size: 15px; }    
+  }
+  tbody {
+    tr { font-size: 14px;
+      &:nth-child(odd) {
+        background-color: #E3E3E3;
+      }
+      &:nth-child(even) {
+        background-color: #FCFCFC;
+      }
+      &:hover {
+        background-color: #C9C9C9;
+        color: #fff;
+        cursor: pointer;
+      }
+    }    
+  }
+}
+
+/*-----------RAPHAEL-MAPS------------*/
+
+#holder_570 { height: 250px; width: 570px; margin: 2em auto; }
+
+#holder_1000 { margin: 0 auto; height: 400px; width: 1000px; }
+
+//a { color: #666; }
+
+//p { text-align: center; }
+
+.city_hover { position: absolute; display: none; padding-left: 10px; width: auto; z-index: 2; background-image: url(../img/arrow.gif); background-repeat: no-repeat; background-position: 0 10px; }
+
+.city_hover .c_label { display: block; padding: 10px; color: #000; background-color: #fff; /* IE fix */ overflow: hidden; }
+
+.city_hover .c_label strong { font-weight: normal; font-family: Georgia, Times, serif; font-size: 1.5em; }
