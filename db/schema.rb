@@ -11,12 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120627030108) do
+ActiveRecord::Schema.define(:version => 20120628022126) do
 
   create_table "escapes", :force => true do |t|
     t.string   "title"
     t.string   "location"
-    t.string   "details"
+    t.text     "details",       :limit => 255
     t.string   "price"
     t.string   "phone"
     t.string   "street"
@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(:version => 20120627030108) do
     t.string   "expiration"
     t.float    "latitude"
     t.float    "longitude"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
     t.string   "nearest_metro"
     t.string   "country"
   end
