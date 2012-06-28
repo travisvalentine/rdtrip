@@ -1,4 +1,5 @@
 class EscapesController < ApplicationController
+  before_filter :store_lastfm_session_key, :only => :index
 
   def index
     @escapes = Escape.active
@@ -12,11 +13,13 @@ class EscapesController < ApplicationController
 
 private
   
-  def get_lastfm_auth_token
-    lastfm = Lastfm.new(LAST_FM_API_KEY, LAST_FM_SECRET_KEY)
-    token = lastfm.auth.get_token
-    user_id = current_user.id
-    temp_auth_token = LastfmAuthToken.from_before_filter(token, user_id)
+  def store_lastfm_session_key
+    if current_user.lastfm_session_key.nil?
+      lastfm = Lastfm.new(LAST_FM_API_KEY, LAST_FM_SECRET_KEY)
+      token = current_user.lastfm_auth_token.token
+      lastfm.session = lastfm.auth.get_session(token)['key']
+      LastfmSessionKey.from_before_filter(lastfm.session, current_user.id)
+    end
   end
 
 end

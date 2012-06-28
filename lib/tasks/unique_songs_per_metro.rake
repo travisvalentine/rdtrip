@@ -16,7 +16,7 @@ task :get_unique_songs_for_metro => :environment do
       db_unique_song          = UniqueSong.new
       db_unique_song.title    = song_title
       db_unique_song.artist   = song_artist
-      db_unique_song.url      = song_lastfm_url
+      db_unique_song.url      = song_lastfm_url + "?autoplay"
       db_unique_song.metro_id = metro.id
       db_unique_song.save
     end

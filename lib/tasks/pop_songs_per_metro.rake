@@ -18,7 +18,7 @@ task :get_popular_songs_for_metro => :environment do
       db_pop_song           = PopularSong.new
       db_pop_song.title     = song_title
       db_pop_song.artist    = song_artist
-      db_pop_song.url       = song_lastfm_url
+      db_pop_song.url       = song_lastfm_url + "?autoplay"
       db_pop_song.metro_id  = metro.id
       db_pop_song.save
     end
