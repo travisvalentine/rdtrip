@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(:version => 20120628022126) do
   create_table "escapes", :force => true do |t|
     t.string   "title"
     t.string   "location"
-    t.text     "details",       :limit => 1000
+    t.text     "details"
     t.string   "price"
     t.string   "phone"
     t.string   "street"
