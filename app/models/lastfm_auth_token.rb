@@ -7,7 +7,7 @@ class LastfmAuthToken < ActiveRecord::Base
   	user = User.find(user_id)
   	if user.lastfm_auth_token.nil?
 	    create! do |temp_token|
-	      temp_token.token = params["token"]
+	      temp_token.token = token
 	      temp_token.user_id = user_id
 	    end
 		else
