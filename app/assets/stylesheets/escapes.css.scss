@@ -37,7 +37,7 @@ table { width: 100%;
 
 //p { text-align: center; }
 
-.city_hover { position: absolute; display: none; padding-left: 10px; width: auto; z-index: 2; background-image: url(../img/arrow.gif); background-repeat: no-repeat; background-position: 0 10px; }
+.city_hover { position: absolute; display: none; padding-left: 10px; width: auto; z-index: 2; background-repeat: no-repeat; background-position: 0 10px; }
 
 .city_hover .c_label { display: block; padding: 10px; color: #000; background-color: #fff; /* IE fix */ overflow: hidden; }
 
