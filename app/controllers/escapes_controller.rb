@@ -14,7 +14,7 @@ class EscapesController < ApplicationController
 private
   
   def store_lastfm_session_key
-    if current_user && current_user.lastfm_session_key.nil?
+    if current_user && !current_user.lastfm_auth_token.nil? && current_user.lastfm_session_key.nil?
       lastfm = Lastfm.new(LAST_FM_API_KEY, LAST_FM_SECRET_KEY)
       token = current_user.lastfm_auth_token.token
       lastfm.session = lastfm.auth.get_session(token)['key']
