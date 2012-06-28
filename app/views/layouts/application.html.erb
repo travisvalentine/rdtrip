@@ -12,8 +12,6 @@
   <header>
     <% if current_user %>
       <p>Logged in as <%= current_user.name %> <%= link_to "Log out", logout_path %></p>
-    <% else %>
-      <p><%= link_to(image_tag("https://developer.linkedin.com/sites/default/files/js-signin.png"), "/auth/linkedin") %></p>
     <% end %>
   </header>
   <div class="container">

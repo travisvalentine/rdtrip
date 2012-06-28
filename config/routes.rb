@@ -6,7 +6,7 @@ Roadtrip::Application.routes.draw do
 
   get "sessions/destroy"
 
-  root :to => "info#home"
+  root :to => "sessions#new"
 
   resources :songs, :only => :index
   resources :escapes, :only => [:index, :show]
@@ -18,5 +18,5 @@ Roadtrip::Application.routes.draw do
   match "auth/lastfm/callback", :to => "lastfm_session_keys#create"
 
   match "logout", :to => "sessions#destroy", :as => "logout"
-
+  get '/escapes_lat_long', to: "escapes#escapes_lat_long"
 end

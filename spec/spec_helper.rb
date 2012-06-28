@@ -38,4 +38,8 @@ RSpec.configure do |config|
   # rspec-rails.
   config.infer_base_class_for_anonymous_controllers = false
 
+  OmniAuth.config.test_mode = true
+
+  OmniAuth.config.mock_auth[:linkedin] = {:provider => 'linkedin', :uid => '123545'}
+
 end

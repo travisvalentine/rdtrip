@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+select#escapes { width: inherit; }
+
+span.IN-widget { margin-bottom: 10px; }
+
 select#escape_id { width: inherit; }
 
 div.songs { height: 400px; overflow-y: scroll; margin: 15px 0; }
@@ -32,10 +36,6 @@ table { width: 100%;
 #holder_570 { height: 250px; width: 570px; margin: 2em auto; }
 
 #holder_1000 { margin: 0 auto; height: 400px; width: 1000px; }
-
-//a { color: #666; }
-
-//p { text-align: center; }
 
 .city_hover { position: absolute; display: none; padding-left: 10px; width: auto; z-index: 2; background-repeat: no-repeat; background-position: 0 10px; }
 

@@ -11,3 +11,32 @@
  *= require_self
  *= require_tree .
 */
+
+body { margin: 0; margin-bottom: 25px; padding: 0; background-color: #f0f0f0; font-family: "Lucida Grande", "Bitstream Vera Sans", "Verdana"; font-size: 13px; color: #333; }
+
+h1 { font-size: 28px; color: #000; }
+
+a { color: #03c;
+  &:hover { background-color: #f0f0f0; color: white; text-decoration: none; }
+} 
+
+.container { background-color: #f0f0f0; width: 420px; margin-top: 15px; margin-left: auto; margin-right: auto; 
+  h1 { padding: 10px 0; }
+  p  { padding: 8px 0 3px; margin-bottom: 0; }
+}
+
+#content { float: left; background-color: white; border: 3px solid #aaa; border-top: none; padding: 25px; width: 500px; }
+
+#sidebar { float: right; width: 175px; }
+
+#footer { clear: both; }
+
+#header, #about, #getting-started { padding-left: 75px; padding-right: 30px; }
+
+#header { background-image: url("assets/rails.png"); background-repeat: no-repeat; background-position: top left; height: 64px; }
+
+#header h1, #header h2 {margin: 0}
+
+#header h2 { color: #888; font-weight: normal; font-size: 16px; }
+
+.italics { font-style: italic; }

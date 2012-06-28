@@ -36,4 +36,8 @@ class Escape < ActiveRecord::Base
     "#{latitude} #{longitude}"
   end
 
+  def city_escaped
+    self.city.gsub(" ","_").gsub("-","_")
+  end
+
 end

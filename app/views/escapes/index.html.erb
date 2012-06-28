@@ -5,11 +5,10 @@
       $("form#song_selector").val("");
     });
     $(function(){
-      $('select').live('change',function(){
-        var form = $(this).closest("form#song_selector");
+      $('#submit_form').click(function(){
+        var form = $(this).closest("form#escape_selector");
         var value = form.find("#escape_id option:selected").val();
         form.attr("action", form.attr("action") + "/" + value);
-        form.submit();
       });
     });
   </script>
@@ -21,8 +20,9 @@
     <%= submit_tag "Search", :name => nil %>
   </p>
 <% end %>
-<%= form_tag url_for("/escapes"), :method => 'get', :id => "song_selector" do %>
+<%= form_tag url_for("/escapes"), :method => 'get', :id => "escape_selector" do %>
   <%= select_tag "escape_id", options_for_select([["Choose your escape", ""]]+ Escape.active.collect {|escape| [ escape.title, escape.id ] } ) %>
+  <%= submit_tag "GO", :id => "submit_form" %>
 <% end %>
 </div>
 <div id="holder_570" style="position:relative;">

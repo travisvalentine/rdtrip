@@ -9,6 +9,7 @@ gem 'mechanize'
 gem 'nokogiri'
 gem 'omniauth'
 gem 'omniauth-linkedin'
+gem 'omniauth-lastfm'
 gem 'rails', '3.2.3'
 gem 'tire'
 
@@ -26,8 +27,6 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'faker'
-  gem 'newrelic_rpm'
-  gem 'rack-perftools_profiler', :require => 'rack/perftools_profiler'
   gem 'rspec-rails'
   gem 'simplecov', :require => false
   gem 'sqlite3'

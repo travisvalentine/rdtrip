@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 private
 
   def check_presence_of_current_user
-    unless current_user.nil?
+    if current_user
       redirect_to escapes_path
     end
   end

@@ -12,7 +12,6 @@ FactoryGirl.define do
     expiration    Time.now.to_date - 7
     latitude      Faker::Address.latitude.to_f
     longitude     Faker::Address.longitude.to_f
-    nearest_metro Faker::Address.city
     country       Faker::Address.country
   end
 end

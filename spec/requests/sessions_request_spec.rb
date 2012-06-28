@@ -1,10 +1,11 @@
 require 'spec_helper'
 
 describe "LinkedIn OAuth" do
-  context "when logging in a user with LinkedIn" do
 
+  context "when logging in a user with LinkedIn" do
+    
     it "logs in a user" do
-      pending
+      login
     end
 
     it "redirects to escapes#index" do

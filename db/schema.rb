@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(:version => 20120628022126) do
   create_table "escapes", :force => true do |t|
     t.string   "title"
     t.string   "location"
-    t.text     "details"
+    t.text     "details",       :limit => 255
     t.string   "price"
     t.string   "phone"
     t.string   "street"
@@ -26,10 +26,10 @@ ActiveRecord::Schema.define(:version => 20120628022126) do
     t.string   "expiration"
     t.float    "latitude"
     t.float    "longitude"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
     t.string   "nearest_metro"
     t.string   "country"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
   end
 
   create_table "lastfm_auth_tokens", :force => true do |t|
@@ -40,13 +40,6 @@ ActiveRecord::Schema.define(:version => 20120628022126) do
   end
 
   create_table "lastfm_session_keys", :force => true do |t|
-    t.string   "token"
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "lastfm_tokens", :force => true do |t|
     t.string   "token"
     t.integer  "user_id"
     t.datetime "created_at", :null => false
