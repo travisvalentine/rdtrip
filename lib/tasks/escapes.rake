@@ -41,7 +41,6 @@ task :get_escapes => :environment do
     puts "Saving escape for #{escape_title}"
     db_escape.location = escape_location
     db_escape.details = escape_details
-    puts escape_details
     db_escape.price = escape_price
     db_escape.phone = escape_phone
     db_escape.street = escape_street
