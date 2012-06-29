@@ -1,44 +1,60 @@
 <h2><%= @escape.title %></h2>
 <p>Here are some songs Last.fm users from <%= @metro.name %> like to listen to to make your roadtrip more personal:</p>
-<% if current_user %>
-  <p>Looks like <%= @metro.unique_songs.first.artist %> is popular here. <%= link_to "Click here", "http://www.last.fm/api/auth/?api_key=#{LAST_FM_API_KEY}&token=#{current_user.lastfm_auth_token.token}" %> for a last.fm playlist.
+<div id="lastfm_results">
+  <div class="songs">
+    <table>
+      <thead>
+        <tr>
+          <th>Artist</th>
+          <th>Song</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @metro.unique_songs.each do |song| %>
+        <tr>
+          <td><%= song.artist %></td>
+          <td><%= link_to song.title, song.url, :target => "_blank" %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <p>Too underground for you? Here are the popular songs Last.fm users from <%= @metro.name %> are liking:
+  <div class="songs">
+    <table>
+      <thead>
+        <tr>
+          <th>Artist</th>
+          <th>Song</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @metro.popular_songs.each do |song| %>
+        <tr>
+          <td><%= song.artist %></td>
+          <td><%= link_to song.title, song.url, :target => "_blank" %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<% if current_user && @metro.unique_songs != [] %>
+<div id="rdio_playlist">
+  <%= content_tag "div", :id => "tracks", :data => {:tracks => @playlist.rdio_tracks } do %>
+  <% end %>
+  <div id="api">
+  </div>
+  <div id="current_track">
+    <p>Artist:<span id="artist"></p>
+    <p>Title:<span id="track"></p>
+  </div>
+  <div id="controls">
+    <%= link_to "Play", "#", :id => "play" %>
+    <%= link_to "Pause", "#", :id => "pause" %>
+    <%= link_to "Previous", "#", :id => "previous" %>
+    <%= link_to "Next", "#", :id => "next" %>
+</div>
 <% else %>
-  <p>Login to create a playlist for this destination.</p>
+<p>Log in for some playlists!</p>
 <% end %>
-<div class="songs">
-  <table>
-    <thead>
-      <tr>
-        <th>Artist</th>
-        <th>Song</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @metro.unique_songs.each do |song| %>
-      <tr>
-        <td><%= song.artist %></td>
-        <td><%= link_to song.title, song.url, :target => "_blank" %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
-<p>Too underground for you? Here are the popular songs Last.fm users from <%= @metro.name %> are liking:
-<div class="songs">
-  <table>
-    <thead>
-      <tr>
-        <th>Artist</th>
-        <th>Song</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @metro.popular_songs.each do |song| %>
-      <tr>
-        <td><%= song.artist %></td>
-        <td><%= link_to song.title, song.url, :target => "_blank" %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>

@@ -1,17 +1,13 @@
 source 'https://rubygems.org'
 
-gem 'faraday'
 gem 'geocoder'
-gem 'gmaps4rails'
 gem 'jquery-rails'
 gem 'mechanize'
 gem 'nestling'
 gem 'nokogiri'
 gem 'omniauth'
 gem 'omniauth-linkedin'
-gem 'omniauth-lastfm'
 gem 'rails', '3.2.3'
-gem 'tire'
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'
