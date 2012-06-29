@@ -39,10 +39,10 @@ table { width: 100%;
 
 .city_hover { position: absolute; display: none; padding-left: 10px; width: auto; z-index: 2; background-repeat: no-repeat; background-position: 0 10px; }
 
-.city_hover .c_label { display: block; padding: 10px; color: #FF6961; background-color: #FFFEE0; /* IE fix */ overflow: hidden; border-radius: 3px; -webkit-box-shadow: 0 6px 10px 5px rgba(0, 0, 0, 0.2); -moz-box-shadow: 0 6px 10px 5px rgba(0, 0, 0, 0.2); box-shadow: 0 6px 10px 5px rgba(0, 0, 0, 0.2); }
+.city_hover .c_label { display: block; padding: 10px; color: #999; background-color: #FFFEE0; /* IE fix */ overflow: hidden; border-radius: 3px; -webkit-box-shadow: 0 6px 10px 5px rgba(0, 0, 0, 0.2); -moz-box-shadow: 0 6px 10px 5px rgba(0, 0, 0, 0.2); box-shadow: 0 6px 10px 5px rgba(0, 0, 0, 0.2); }
 
 .city_hover .c_label strong { font-weight: normal; font-family: Georgia, Times, serif; font-size: 1.5em;
-  a { text-decoration: none; color: #4A55CF;
+  a { text-decoration: none; color: #FF6961;
     &:hover { text-decoration: underline; }
   }
 }
