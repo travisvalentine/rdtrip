@@ -13,7 +13,10 @@ class EscapesController < ApplicationController
   end
 
   def escapes_lat_long
-    render json: Escape.all.map{ |e| { :city => e.city_escaped,
+    render json: Escape.all.map{ |e| { :title => e.title,
+                                       :price => e.price,
+                                       :city => e.city_escaped,
+                                       :state => e.state,
                                        :latitude => e.latitude,
                                        :longitude => e.longitude } }
   end

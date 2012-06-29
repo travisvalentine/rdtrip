@@ -1,7 +1,7 @@
 def set_omniauth(user)
   credentials = {:provider => :linkedin,
                  :uid      => user.uid,
-                 :info => {
+                 :linkedin => {
                             :name => user.name,
                             :image => user.image
                           }
@@ -13,12 +13,11 @@ def set_omniauth(user)
   OmniAuth.config.test_mode = true
 
   OmniAuth.config.mock_auth[provider] = {
-    'uid' => credentials[:uuid],
+    'uid' => credentials[:uid],
     "info" => {
       "name" => user_hash[:name],
       "image" => user_hash[:image]
-    },
-    "credentials" => { "token" => user.access_token },
+    }
   }
 end
 
@@ -36,7 +35,7 @@ end
 def login(user = FactoryGirl.build(:user))
   set_omniauth(user)
   visit root_path
-  find("a#oauth_linkedin img").click
+  find("#oauth_linkedin").click
   User.last
 end
 

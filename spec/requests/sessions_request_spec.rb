@@ -4,8 +4,9 @@ describe "LinkedIn OAuth" do
 
   context "when logging in a user with LinkedIn" do
     
-    it "logs in a user" do
+    it "logs in a user", :test => :login do
       login
+      page.current_path.should == escapes_path
     end
 
     it "redirects to escapes#index" do
