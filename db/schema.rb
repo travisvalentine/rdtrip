@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(:version => 20120629143411) do
   create_table "popular_songs", :force => true do |t|
     t.string   "artist"
     t.string   "title"
-    t.text     "url",        :limit => 255
+    t.text     "url"
     t.integer  "metro_id"
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(:version => 20120629143411) do
   create_table "unique_songs", :force => true do |t|
     t.string   "artist"
     t.string   "title"
-    t.text     "url",        :limit => 255
+    t.text     "url"
     t.integer  "metro_id"
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
