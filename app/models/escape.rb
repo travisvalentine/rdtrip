@@ -9,7 +9,7 @@ class Escape < ActiveRecord::Base
   # include Tire::Model::Callbacks
 
   def self.active
-    where("expiration > ? OR expiration IS ?", Time.now.strftime("%B %d, %Y").to_date, "")
+    where("expiration > ? OR expiration LIKE ?", Time.now.strftime("%B %d, %Y").to_date, "")
   end
 
   # def self.search(params)
