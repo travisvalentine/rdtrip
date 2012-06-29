@@ -20,7 +20,7 @@ a { color: #03c;
   &:hover { background-color: #f0f0f0; color: white; text-decoration: none; }
 } 
 
-.container { background-color: #f0f0f0; width: 420px; margin-top: 15px; margin-left: auto; margin-right: auto; 
+.container { background-color: #f0f0f0; width: 990px; margin-top: 15px; margin-left: auto; margin-right: auto; 
   h1 { padding: 10px 0; }
   p  { padding: 8px 0 3px; margin-bottom: 0; }
 }
