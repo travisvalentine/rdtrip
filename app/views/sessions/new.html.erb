@@ -3,9 +3,16 @@
 <% end %>
 <h1>rdtrip</h1>
 <p><%= link_to image_tag("https://developer.linkedin.com/sites/default/files/js-signin.png"), "/auth/linkedin", :id => "oauth_linkedin" %></p>
-<div id="holder_570" style="position:relative;">
+<div id="holder_1000" style="position:relative;">
   <% Escape.all.each do |escape| %>
-    <%= content_tag(:div, content_tag(:span, content_tag(:strong, "#{escape.title} - #{escape.city}, #{escape.state} #{escape.price}"), :class => "c_label"), :id => "#{escape.city_escaped}", :class => "city_hover") %>
-  <% end %>
+    <%= content_tag(:div, :class => "city_hover", :id => "#{escape.city_escaped}") do %>
+    	<%= content_tag(:span, :class => "c_label") do %>
+    		<%= content_tag(:strong) do %>
+    			<%= link_to "#{escape.title} - #{escape.price}", escape_path(escape) %>
+    			<p class="escape-details"><%= escape.city %>, <%= escape.state %></p>
+  			<% end %>
+			<% end %>
+		<% end %>
+	<% end %>
 </div>
 <div id="footer">&nbsp;</div>
