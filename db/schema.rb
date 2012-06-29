@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120629143411) do
+ActiveRecord::Schema.define(:version => 20120629192610) do
 
   create_table "escapes", :force => true do |t|
     t.string   "title"
@@ -57,19 +57,47 @@ ActiveRecord::Schema.define(:version => 20120629143411) do
     t.datetime "updated_at",        :null => false
   end
 
+  create_table "playlists", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "escape_id"
+  end
+
   create_table "popular_songs", :force => true do |t|
     t.string   "artist"
     t.string   "title"
-    t.text     "url"
+    t.text     "url",        :limit => 255
     t.integer  "metro_id"
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
   end
 
+  create_table "rdio_tracks", :force => true do |t|
+    t.string   "artist"
+    t.string   "title"
+    t.string   "rdio_id"
+    t.integer  "playlist_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "recommenders", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "tracks", :force => true do |t|
+    t.string   "artist"
+    t.string   "title"
+    t.string   "rdio_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "unique_songs", :force => true do |t|
     t.string   "artist"
     t.string   "title"
-    t.text     "url"
+    t.text     "url",        :limit => 255
     t.integer  "metro_id"
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false

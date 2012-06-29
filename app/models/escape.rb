@@ -5,18 +5,11 @@ class Escape < ActiveRecord::Base
 
   geocoded_by :address
 
-  # include Tire::Model::Search
-  # include Tire::Model::Callbacks
+  has_one :playlist
 
   def self.active
     where("expiration > ? OR expiration LIKE ?", Time.now.strftime("%B %d, %Y").to_date, "")
   end
-
-  # def self.search(params)
-  #   tire.search do
-  #     query { string params[:query] if params[:query].present?}
-  #   end
-  # end
 
   def find_nearest_metro
     0.upto(1500) do |mile_radius|

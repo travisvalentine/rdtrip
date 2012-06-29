@@ -7,11 +7,7 @@ class SessionsController < ApplicationController
   def create
 		user = User.from_omniauth(env['omniauth.auth'])
 		session[:user_id] = user.id
-		if user.lastfm_auth_token.nil?
-			redirect_to lastfm_path, notice: "Signed in."
-		else
-			redirect_to escapes_path, notice: "Signed in."
-		end
+		redirect_to escapes_path, notice: "Signed in."
   end
 
   def destroy

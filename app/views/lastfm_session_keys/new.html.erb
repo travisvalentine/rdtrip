@@ -1,3 +1,0 @@
-<p>Are you a last.fm subscriber? Connect your account for playlists.</p>
-<p><%= link_to(image_tag("http://cdn.last.fm/flatness/badges/lastfm_red.gif"), "http://www.last.fm/api/auth/?api_key=#{LAST_FM_API_KEY}&token=#{current_user.lastfm_auth_token.token}") %></p>
-<p>Not a last.fm subscriber or hate music? <%= link_to "Click here to skip", escapes_path %></p>
