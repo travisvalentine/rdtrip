@@ -14,20 +14,8 @@
   </script>
 <% end %>
 <div id="escape_select">
-<%= form_tag escapes_path, :method => :get do %>
-  <p>
-    <%= text_field_tag :query, params[:query] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
-<% end %>
 <%= form_tag url_for("/escapes"), :method => 'get', :id => "escape_selector" do %>
   <%= select_tag "escape_id", options_for_select([["Choose your escape", ""]]+ Escape.active.collect {|escape| [ escape.title, escape.id ] } ) %>
   <%= submit_tag "GO", :id => "submit_form" %>
 <% end %>
 </div>
-<div id="holder_570" style="position:relative;">
-  <% Escape.all.each do |escape| %>
-    <%= content_tag(:div, content_tag(:span, content_tag(:strong, "#{escape.title}"), :class => "c_label"), :id => "#{escape.city.gsub(" ","_")}", :class => "city_hover") %>
-  <% end %>
-</div>
-<div id="footer">&nbsp;</div>

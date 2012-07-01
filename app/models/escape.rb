@@ -1,5 +1,5 @@
 class Escape < ActiveRecord::Base
-  attr_accessible :location, :phone, :price, :street, :title
+  attr_accessible :location, :phone, :price, :street, :title, :upvotes, :downvotes
 
   after_create :find_nearest_metro
 
@@ -31,6 +31,15 @@ class Escape < ActiveRecord::Base
 
   def city_escaped
     self.city.gsub(" ","_").gsub("-","_")
+  end
+
+  def votes
+    vote_tally = self.upvotes - self.downvotes
+    if vote_tally <= 1
+      votes = 1
+    elsif vote_tally >= 20
+      votes = 20
+    end
   end
 
 end

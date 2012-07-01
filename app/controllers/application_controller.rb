@@ -17,8 +17,4 @@ private
   end
   helper_method :current_user
 
-  def find_playlist
-    @playlist ||= Playlist.find(params[:playlist_id])
-  end
-
 end

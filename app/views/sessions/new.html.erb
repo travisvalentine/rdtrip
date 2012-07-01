@@ -1,18 +1,18 @@
 <%= content_for(:header) do %>
   <%= javascript_include_tag "mapped_escapes" %>
 <% end %>
-<h1>rdtrip</h1>
-<p><%= link_to image_tag("https://developer.linkedin.com/sites/default/files/js-signin.png"), "/auth/linkedin", :id => "oauth_linkedin" %></p>
+<div id="welcome">
+  <p>Enhance your escape with music from Last.fm and rdio.</p>
+</div>
 <div id="holder_1000" style="position:relative;">
   <% Escape.all.each do |escape| %>
     <%= content_tag(:div, :class => "city_hover", :id => "#{escape.city_escaped}") do %>
     	<%= content_tag(:span, :class => "c_label") do %>
     		<%= content_tag(:strong) do %>
-    			<%= link_to "#{escape.title} - #{escape.price}", escape_path(escape) %>
+    			<p class="main-info"><%= "#{escape.title} - #{escape.price}" %></p>
     			<p class="escape-details"><%= escape.city %>, <%= escape.state %></p>
   			<% end %>
 			<% end %>
 		<% end %>
 	<% end %>
 </div>
-<div id="footer">&nbsp;</div>

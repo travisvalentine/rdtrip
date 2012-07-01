@@ -1,18 +1,14 @@
 Roadtrip::Application.routes.draw do
 
-  get "playlists/new"
-
-  get "playlists/show"
-
-  get "playlists/create"
-
-  get "tracks/show"
+  get "info/shoutouts"
 
   get "sessions/create"
 
   get "sessions/destroy"
 
   root :to => "sessions#new"
+
+  match "shout-outs", :to => "info#shoutouts", :as => "shoutouts"
 
   resources :songs, :only => :index
   resources :escapes, :only => [:index, :show]

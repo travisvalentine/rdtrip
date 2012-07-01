@@ -3,6 +3,7 @@ SimpleCov.start do
   add_filter 'config/'
   add_filter 'app/helpers'
   add_filter 'spec/factories'
+  add_filter 'spec/support'
 end
 
 ENV["RAILS_ENV"] ||= 'test'
