@@ -54,6 +54,11 @@
     <%= link_to "Pause", "#", :id => "pause" %>
     <%= link_to "Previous", "#", :id => "previous" %>
     <%= link_to "Next", "#", :id => "next" %>
+  </div>
+  <div id="votes">
+    <%= button_to "Sounds good", escape_path(@escape, :upvotes => true), :method => :put %>
+    <%= button_to "Sounds bad", escape_path(@escape, :downvotes => true), :method => :put %>
+  </div>
 </div>
 <% else %>
 <p>Log in for some playlists!</p>

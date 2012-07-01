@@ -3,22 +3,35 @@
 <head>
   <title>rdtrip</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= stylesheet_link_tag 'gmaps4rails' %>
+  <link href='http://fonts.googleapis.com/css?family=Lilita+One' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag "application" %>
   <%= yield(:header) %>
   <%= csrf_meta_tags %>
 </head>
 <body>
   <header>
+    <div id="header_content">
     <% if current_user %>
-      <p>Logged in as <%= current_user.name %> <%= link_to "Log out", logout_path %></p>
+      <%= render "layouts/logged_in" %>
+    <% else %>
+      <%= render "layouts/logged_out" %>
     <% end %>
+    </div>
   </header>
-  <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
-  <% end %>
   <div class="container">
-  <%= yield %>
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, :class => "flash-#{name}" if msg.is_a?(String) %>
+    <% end %>
+    <div id="content">
+      <%= yield %>
+    </div>
   </div>
+  <footer>
+    <div id="inner">
+      <div id="footer_content">
+        <%= link_to "Shout outs", shoutouts_path %>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

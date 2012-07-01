@@ -2,15 +2,12 @@ require 'spec_helper'
 
 describe "LinkedIn OAuth" do
 
-  context "when logging in a user with LinkedIn" do
-    
-    it "logs in a user", :test => :login do
-      login
-      page.current_path.should == escapes_path
-    end
+  before(:each) { login }
 
-    it "redirects to escapes#index" do
-      pending
+  context "when logging in a user with LinkedIn" do
+
+    it "logs in a user and redirects to escapes#index" do
+      page.current_path.should == escapes_path
     end
 
   end
@@ -18,7 +15,19 @@ describe "LinkedIn OAuth" do
   context "when a user is logged in with LinkedIn" do
 
     it "won't allow you to go to the root url" do
-      pending
+      visit "/"
+      page.current_path.should == escapes_path
+    end
+
+  end
+
+  context "when logging out" do
+
+    it "the session is cleared and the page redirects to root" do
+      within("header") do
+        click_link_or_button "Log out"
+      end
+      page.current_path.should == "/"
     end
 
   end

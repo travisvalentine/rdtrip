@@ -4,8 +4,17 @@ describe Escape do
 
   let!(:escape)         { FactoryGirl.create(:escape, :expiration => (Time.now.to_date + 20),
                                               :longitude => -78.8527841,
-                                              :latitude => 37.9069562) }
-  let!(:expired_escape) { FactoryGirl.create(:escape, :expiration => (Time.now.to_date -  20) )}
+                                              :latitude => 37.9069562,
+                                              :upvotes => 40,
+                                              :downvotes => 4) }
+
+  let!(:expired_escape) { FactoryGirl.create(:escape, :expiration => (Time.now.to_date -  20),
+                                                      :upvotes => 4,
+                                                      :downvotes => 30) }
+
+  let!(:escape_city)    { FactoryGirl.create(:escape, :city => "Cabo San Lucas",
+                                                      :upvotes => 4,
+                                                      :downvotes => 2) }
 
   let!(:metro1)         { FactoryGirl.create(:metro, :latitude => 37.5407246,
                                                      :longitude => -77.4360481) }
@@ -29,10 +38,6 @@ describe Escape do
     end
   end
 
-  describe ".search" do
-    it "finds escapes that match search params"
-  end
-
   describe "#find_nearest_metro" do
     it "finds the nearest last.fm metro to the escape lat/long" do
       escape.find_nearest_metro
@@ -51,6 +56,26 @@ describe Escape do
   describe "#address" do
     it "is a string of an escape's latitude and longitude" do
       escape.address.should == "#{escape.latitude} #{escape.longitude}"
+    end
+  end
+
+  describe "#city_escaped" do
+    it "formats cities with spaces and hyphens with underscores" do
+      escape_city.city_escaped.should == "Cabo_San_Lucas"
+    end
+  end
+
+  describe "#votes" do
+    it "calculates the difference in upvotes and downvotes for an escape" do
+      raise escape_city.votes.inspect
+    end
+
+    it "defaults to 1 if the difference is less than or equal to 1" do
+      expired_escape.votes.should == 1
+    end
+
+    it "defaults to 20 if the difference is greater than or equal to 20" do
+      escape.votes.should == 20
     end
   end
 

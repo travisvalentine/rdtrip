@@ -10,6 +10,7 @@ window.onload = function () {
   };        
   var map = {};
   var R = Raphael("holder_1000");
+  var zpd = new RaphaelZPD(R, { zoom: true, pan: true, drag: true });
   render_map(R,map,attr);   
   for (var state in map) {                      
             map[state].color = Raphael.getColor();
@@ -65,7 +66,7 @@ window.onload = function () {
     for (_i = 0, _len = dataz.length; _i < _len; _i++) {
       datum = dataz[_i];
         
-      escapes[datum.city] = plot(parseFloat(datum.latitude), parseFloat(datum.longitude), 1)
+      escapes[datum.city] = plot(parseFloat(datum.latitude), parseFloat(datum.longitude), datum.votes)
     }
 
   var current_city = null;
