@@ -1,3 +1,12 @@
+<%= content_for(:header) do %>
+  <script type="text/javascript">
+    $(function(){
+      $('#pop_drop').click(function(){
+        $('.popular').slideToggle();
+      });
+    });
+  </script>
+<% end %>
 <div id="escape_info">
   <h1><%= @escape.title %></h1>
   <p><%= @escape.location %>, <%= @escape.price %><span id="details"><%= link_to "Full Details", "#", :title => "#{@escape.details}" %></span></p>
@@ -5,7 +14,7 @@
 </div>
 <div id="music" class="group">
   <div id="lastfm_results">
-    <p>Here are some songs Last.fm users from <%= @metro.name %> like to listen to to make your roadtrip more personal:</p>
+    <p>Here are some songs Last.fm users from <%= @metro.name %> like to listen to. Browse while you listen to the rdio playlist on the right:</p>
     <div class="songs unique">
       <table>
         <thead>
@@ -24,7 +33,7 @@
         </tbody>
       </table>
     </div>
-    <p>The list above too mainstream? <%= link_to "Click here", nil %> for the popular songs from <%= @metro.name %>
+    <p>Too underground? <%= link_to "Click here", "#", :id => "pop_drop" %> for the popular songs from <%= @metro.name %>
     <div class="songs popular">
       <table>
         <thead>

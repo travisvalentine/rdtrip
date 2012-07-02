@@ -20,11 +20,11 @@
   p#current_location { font-size: 13px; text-transform: uppercase; }
 }
 
-#escape_info { 
+#escape_info { padding: 10px 0;
   span#details a { text-decoration: none; margin-left: 8px; }
 }
 
-#music { margin-top: 40px; }
+#music { margin-top: 20px; }
 
 select#escapes { width: inherit; }
 
@@ -41,9 +41,10 @@ select#escape_id { width: 100%; }
       }
       tbody {
         tr { font-size: 14px;
+          td { padding: 3px 0; }
           td:first-child { width: 140px; }
           &:nth-child(odd) {
-            background-color: #E3E3E3;
+            background-color: #EEEEEE;
           }
           &:nth-child(even) {
             background-color: #FCFCFC;
@@ -53,7 +54,10 @@ select#escape_id { width: 100%; }
             color: #fff;
             cursor: pointer;
           }
-        }    
+        }
+        .lastfm-link {
+          text-decoration: none;
+        }
       }
     }
   }
@@ -84,7 +88,7 @@ select#escape_id { width: 100%; }
   }
 }
 
-#rdio_playlist { width: 250px; float: left; margin: 15px 0 0 200px; }
+#rdio_playlist { width: 250px; float: left; margin: 25px 0 0 200px; }
 
 /*-----------RAPHAEL-MAPS------------*/
 
