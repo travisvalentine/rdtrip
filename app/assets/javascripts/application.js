@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+//= require chosen-jquery
 
 $(function(){
   $('.flash-notice').delay(1600).slideToggle(200);
