@@ -26,7 +26,8 @@
     </div>
     <div class="field">
       <p>Current location:</p>
-      <%= @location.city %>, <%= @location.state %>
+      <%= text_field_tag "#{@location.city}" %> , 
+      <%= text_field_tag "#{@location.state}", nil, :id => "state" %>
     </div>
     <div class="field">
       <p>Your escape:</p>

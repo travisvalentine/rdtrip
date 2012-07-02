@@ -2,14 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#escape_select { width: 500px; height: auto; margin: 30px auto 0; border: 1px solid #ccc; padding: 20px; -webkit-border-radius: 8px; -moz-border-radius: 8px; border-radius: 8px; }
+#escape_select { width: 500px; height: auto; margin: 30px auto 0; border: 1px solid #ccc; padding: 20px; -webkit-border-radius: 8px; -moz-border-radius: 8px; border-radius: 8px; 
+  h1 { padding: 5px 0 15px; }
+}
 
 #escape_selector button[type="submit"] { width: 100%; margin-top: 10px; padding: 15px 20px; cursor: pointer; border-radius: 5px; border: 0; background: url("http://www.hungryacademy.com/images/noise.png") repeat top left, -webkit-linear-gradient(#FF382E, #FF5147, #FF382E); color: #fff; font-size: 18px; border: 1px solid #E00B00; border-bottom: 1px solid gray;
   &:hover { background-color: #E00B00; }
   &:active { background: url("http://www.hungryacademy.com/images/noise.png") repeat top left, -webkit-linear-gradient(#FF2014, #FF382E, #FF5147); -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05); -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05); box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05); }
 }
 
-#escape_selector div.field { margin: 5px 0; width: 100%; display: inline-block; }
+#escape_selector div.field { margin: 5px 0; width: 100%; display: inline-block; 
+  input[type="text"] { padding: 5px; width: 275px; font-size: 14px; margin: 3px 0; -moz-box-shadow: inset 0 8px 8px -8px #696868, inset 0 -8px 8px -8px #696868; -webkit-box-shadow: inset 0 8px 8px -8px #696868, inset 0 -8px 8px -8px #696868; box-shadow: inset 0 8px 8px -8px #696868, inset 0 -8px 8px -8px #696868; 
+    &:focus { border-color:rgba(35,146,231,0.8); outline:0; outline:thin dotted \9; -webkit-box-shadow:inset 0 1px 3px rgba(0,0,0,0.075),0 0 12px rgba(82,168,236,0.6) !important; -moz-box-shadow:inset 0 1px 3px rgba(0,0,0,0.075),0 0 12px rgba(82,168,236,0.6) !important; box-shadow:inset 0 1px 3px rgba(0,0,0,0.075),0 0 12px rgba(82,168,236,0.6) !important; }
+    &#state { width: 100px; }
+  }
+}
 
 select#escapes { width: inherit; }
 
@@ -18,7 +25,9 @@ span.IN-widget { margin-bottom: 10px; }
 select#escape_id { width: 100%; }
 
 #lastfm_results { width: 450px; float: left;
-  div.songs { height: 400px; overflow-y: scroll; margin: 15px 0; }  
+  div.songs { height: 400px; overflow-y: scroll; margin: 15px 0;
+    p { font-weight: 600; }
+  }
 }
 
 #rdio_playlist { width: 200px; float: left; margin: 15px 0 0 200px; }
