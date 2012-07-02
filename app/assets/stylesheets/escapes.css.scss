@@ -29,32 +29,55 @@ select#escape_id { width: 100%; }
 #lastfm_results { width: 450px; float: left;
   div.songs { height: 400px; overflow-y: scroll; margin: 15px 0;
     p { font-weight: 600; }
+    table { width: 100%;
+      thead {
+        th { text-align: left; font-size: 15px; }    
+      }
+      tbody {
+        tr { font-size: 14px;
+          td:first-child { width: 140px; }
+          &:nth-child(odd) {
+            background-color: #E3E3E3;
+          }
+          &:nth-child(even) {
+            background-color: #FCFCFC;
+          }
+          &:hover {
+            background-color: #C9C9C9;
+            color: #fff;
+            cursor: pointer;
+          }
+        }    
+      }
+    }
   }
 }
 
-#rdio_playlist { width: 200px; float: left; margin: 15px 0 0 200px; }
-
-table { width: 100%;
-  thead {
-    th { text-align: left; font-size: 15px; }    
+#current_track { padding: 15px; border: 1px solid #ccc; border-radius: 3px;
+  table#playing { width: 100%;
+    tr {
+      td.play-label { width: 30px; color: #8C8C8C; }
+      td:last-child { width: 150px; 
+        span { width: inherit; font-weight: 600; }
+      }
+    }
   }
-  tbody {
-    tr { font-size: 14px;
-      td:first-child { width: 140px; }
-      &:nth-child(odd) {
-        background-color: #E3E3E3;
-      }
-      &:nth-child(even) {
-        background-color: #FCFCFC;
-      }
-      &:hover {
-        background-color: #C9C9C9;
-        color: #fff;
-        cursor: pointer;
-      }
-    }    
+  #controls { width: 130px; margin: 10px auto 0;
+    img { height: 25px; margin: 0 15px 0 0;
+      &#pause, &#play { margin: 0 15px 0 0; }
+      &#next { margin: 0 0 0 15px; }
+    }
   }
 }
+
+#votes { margin: 10px 0; padding: 0;
+  a { display:inline-block; margin: 10px 0; width: 45%;
+    &:first-child { margin-right: 20px; }
+    img { height: 40px; padding: 10px 35px; cursor: pointer; border-radius: 5px; border: 0; background: url("http://www.hungryacademy.com/images/noise.png") repeat top left, -webkit-linear-gradient(#FF382E, #FF5147, #FF382E); }
+  }
+}
+
+#rdio_playlist { width: 250px; float: left; margin: 15px 0 0 200px; }
 
 /*-----------RAPHAEL-MAPS------------*/
 

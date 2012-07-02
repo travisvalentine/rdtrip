@@ -19,7 +19,7 @@
       </tbody>
     </table>
   </div>
-  <p>Too underground for you? Here are the popular songs Last.fm users from <%= @metro.name %> are liking:
+  <p>How about the popular songs from <%= @metro.name %>:
   <div class="songs">
     <table>
       <thead>
@@ -46,18 +46,28 @@
   <div id="api">
   </div>
   <div id="current_track">
-    <p>Artist:<span id="artist"></p>
-    <p>Title:<span id="track"></p>
-  </div>
-  <div id="controls">
-    <%= link_to "Play", "#", :id => "play" %>
-    <%= link_to "Pause", "#", :id => "pause" %>
-    <%= link_to "Previous", "#", :id => "previous" %>
-    <%= link_to "Next", "#", :id => "next" %>
+    <table id="playing">
+      <tbody>
+        <tr>
+          <td class="play-label">Artist:</td>
+          <td><span id="artist"></span></td>
+        </tr>
+        <tr>
+          <td class="play-label">Title:</td>
+          <td><span id="track"></span></td>
+        </tr>
+      </tbody>
+    </table>
+    <div id="controls">
+      <%= link_to image_tag("previous.png"), "#", :id => "previous" %>
+      <%= link_to image_tag("play.png"), "#", :id => "play" %>
+      <%= link_to image_tag("pause.png"), "#", :id => "pause" %>
+      <%= link_to image_tag("next.png"), "#", :id => "next" %>
+    </div>
   </div>
   <div id="votes">
-    <%= button_to "Sounds good", escape_path(@escape, :upvotes => true), :method => :put %>
-    <%= button_to "Sounds bad", escape_path(@escape, :downvotes => true), :method => :put %>
+    <%= link_to image_tag("love.png"), escape_path(@escape, :upvotes => true), :method => :put %>
+    <%= link_to image_tag("dislike.png"), escape_path(@escape, :downvotes => true), :method => :put %>
   </div>
 </div>
 <% else %>
