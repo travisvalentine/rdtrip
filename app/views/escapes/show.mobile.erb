@@ -10,7 +10,8 @@
 <div id="escape_info">
   <h1><%= @escape.title %></h1>
   <p><%= @escape.location %>, <%= @escape.price %><span id="details"><%= link_to "Full Details", "#", :title => "#{@escape.details}" %></span></p>
-  <p><%= @escape.street %> &bull; <%= @escape.city %> &bull; <%= @escape.state %></p>
+  <p><%= @escape.street %></p>
+  <p><%= @escape.city %> &bull; <%= @escape.state %></p>
 </div>
 <div id="music" class="group">
   <div id="rdio_playlist">
@@ -40,7 +41,6 @@
       </div>
     </div>
     <div id="votes">
-      <h1><%= @escape.votes %></h1>
       <%= link_to image_tag("love.png"), escape_path(@escape, :upvotes => true), :id => "upvote", :method => :put, :remote => true %>
       <%= link_to image_tag("dislike.png"), escape_path(@escape, :downvotes => true), :id => "downvote", :method => :put, :remote => true %>
     </div>
