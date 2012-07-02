@@ -20,6 +20,12 @@
   p#current_location { font-size: 13px; text-transform: uppercase; }
 }
 
+#escape_info { 
+  span#details a { text-decoration: none; margin-left: 8px; }
+}
+
+#music { margin-top: 40px; }
+
 select#escapes { width: inherit; }
 
 span.IN-widget { margin-bottom: 10px; }
@@ -51,6 +57,7 @@ select#escape_id { width: 100%; }
       }
     }
   }
+  .popular { display: none; }
 }
 
 #current_track { padding: 15px; border: 1px solid #ccc; border-radius: 3px;

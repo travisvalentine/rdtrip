@@ -43,4 +43,5 @@ var duration = 1; // track the duration of the currently playing track
 
     $('#play').click(function() { $('#api').rdio().play(); });
     $('#pause').click(function() { $('#api').rdio().pause(); });
+    $('.lastfm-link').click(function() { $('#api').rdio().pause(); });
   });

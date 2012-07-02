@@ -6,21 +6,11 @@
     $(function(){
       $("#escape_id_chzn").addClass("field");
     });
-    $(function(){
-      $("form#song_selector").val("");
-    });
-    $(function(){
-      $('#submit_form').click(function(){
-        var form = $(this).closest("form#escape_selector");
-        var value = form.find("#escape_id option:selected").val();
-        form.attr("action", form.attr("action") + "/" + value);
-      });
-    });
   </script>
 <% end %>
 
 <div id="escape_select">
-  <%= form_tag url_for("/escapes"), :method => 'get', :id => "escape_selector" do %>
+  <%= form_tag url_for("/escape_picker"), :method => 'post', :id => "escape_selector" do %>
     <div>
       <h1>Set your Escape to some music:</h1>
     </div>

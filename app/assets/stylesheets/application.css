@@ -29,6 +29,12 @@ a { color: #03c; }
 
 div#inner { border-top: 1px solid #fff; }
 
+.group:after { visibility: hidden; display: block; content: ""; clear: both; height: 0; }
+
+* html .group             { zoom: 1; } /* IE6 */
+
+*:first-child+html .group { zoom: 1; } /* IE7 */
+
 /*------------HEADER-------------*/
 
 header { position: relative; border: 1px solid #D9D9D9; -webkit-box-shadow: rgba(0, 0, 0, 0.099219) 0px .5px 5px; -moz-box-shadow: rgba(0, 0, 0, 0.099219) 0px .5px 5px; -o-box-shadow: rgba(0, 0, 0, 0.099219) 0px .5px 3px; box-shadow: rgba(0, 0, 0, 0.099219) 0px .5px 3px; }

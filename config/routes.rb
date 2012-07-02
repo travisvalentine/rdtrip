@@ -10,6 +10,8 @@ Roadtrip::Application.routes.draw do
 
   match "shout-outs", :to => "info#shoutouts", :as => "shoutouts"
 
+  resource :escape_picker, :controller => "escape_picker", :path => "escape_picker", :only => [:create]
+
   resources :songs, :only => :index
   resources :escapes, :only => [:index, :show]
 

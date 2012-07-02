@@ -1,75 +1,81 @@
-<h2><%= @escape.title %></h2>
-<p>Here are some songs Last.fm users from <%= @metro.name %> like to listen to to make your roadtrip more personal:</p>
-<div id="lastfm_results">
-  <div class="songs">
-    <table>
-      <thead>
-        <tr>
-          <th>Artist</th>
-          <th>Song</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @metro.unique_songs.each do |song| %>
-        <tr>
-          <td><%= song.artist %></td>
-          <td><%= link_to song.title, song.url, :target => "_blank" %></td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-  <p>How about the popular songs from <%= @metro.name %>:
-  <div class="songs">
-    <table>
-      <thead>
-        <tr>
-          <th>Artist</th>
-          <th>Song</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @metro.popular_songs.each do |song| %>
-        <tr>
-          <td><%= song.artist %></td>
-          <td><%= link_to song.title, song.url, :target => "_blank" %></td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+<div id="escape_info">
+  <h1><%= @escape.title %></h1>
+  <p><%= @escape.location %>, <%= @escape.price %><span id="details"><%= link_to "Full Details", "#", :title => "#{@escape.details}" %></span></p>
+  <p><%= @escape.street %> &bull; <%= @escape.city %> &bull; <%= @escape.state %></p>
 </div>
-<% if current_user && @metro.unique_songs != [] %>
-<div id="rdio_playlist">
-  <%= content_tag "div", :id => "tracks", :data => {:tracks => @playlist.rdio_tracks } do %>
-  <% end %>
-  <div id="api">
-  </div>
-  <div id="current_track">
-    <table id="playing">
-      <tbody>
-        <tr>
-          <td class="play-label">Artist:</td>
-          <td><span id="artist"></span></td>
-        </tr>
-        <tr>
-          <td class="play-label">Title:</td>
-          <td><span id="track"></span></td>
-        </tr>
-      </tbody>
-    </table>
-    <div id="controls">
-      <%= link_to image_tag("previous.png"), "#", :id => "previous" %>
-      <%= link_to image_tag("play.png"), "#", :id => "play" %>
-      <%= link_to image_tag("pause.png"), "#", :id => "pause" %>
-      <%= link_to image_tag("next.png"), "#", :id => "next" %>
+<div id="music" class="group">
+  <div id="lastfm_results">
+    <p>Here are some songs Last.fm users from <%= @metro.name %> like to listen to to make your roadtrip more personal:</p>
+    <div class="songs unique">
+      <table>
+        <thead>
+          <tr>
+            <th>Artist</th>
+            <th>Song</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @metro.unique_songs.each do |song| %>
+          <tr>
+            <td><%= song.artist %></td>
+            <td><%= link_to song.title, song.url, :target => "_blank", :class => "lastfm-link" %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <p>The list above too mainstream? <%= link_to "Click here", nil %> for the popular songs from <%= @metro.name %>
+    <div class="songs popular">
+      <table>
+        <thead>
+          <tr>
+            <th>Artist</th>
+            <th>Song</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @metro.popular_songs.each do |song| %>
+          <tr>
+            <td><%= song.artist %></td>
+            <td><%= link_to song.title, song.url, :target => "_blank", :class => "lastfm-link" %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
-  <div id="votes">
-    <%= link_to image_tag("love.png"), escape_path(@escape, :upvotes => true), :method => :put %>
-    <%= link_to image_tag("dislike.png"), escape_path(@escape, :downvotes => true), :method => :put %>
+  <div id="rdio_playlist">
+  <% if current_user && @metro.unique_songs != [] %>
+    <%= content_tag "div", :id => "tracks", :data => {:tracks => @playlist.rdio_tracks } do %>
+    <% end %>
+    <div id="api">
+    </div>
+    <div id="current_track">
+      <table id="playing">
+        <tbody>
+          <tr>
+            <td class="play-label">Artist:</td>
+            <td><span id="artist"></span></td>
+          </tr>
+          <tr>
+            <td class="play-label">Title:</td>
+            <td><span id="track"></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <div id="controls">
+        <%= link_to image_tag("previous.png"), "#", :id => "previous" %>
+        <%= link_to image_tag("play.png"), "#", :id => "play" %>
+        <%= link_to image_tag("pause.png"), "#", :id => "pause" %>
+        <%= link_to image_tag("next.png"), "#", :id => "next" %>
+      </div>
+    </div>
+    <div id="votes">
+      <%= link_to image_tag("love.png"), escape_path(@escape, :upvotes => true), :method => :put %>
+      <%= link_to image_tag("dislike.png"), escape_path(@escape, :downvotes => true), :method => :put %>
+    </div>
   </div>
+  <% else %>
+  <p>Log in for some playlists!</p>
+  <% end %>
 </div>
-<% else %>
-<p>Log in for some playlists!</p>
-<% end %>
