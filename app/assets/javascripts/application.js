@@ -13,11 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.rdio
-//= require mapped_escapes
-//= require raphael-min
-//= require raphael-zpd
 //= require rdioplayer
-//= require world_1000
 //= require chosen-jquery
 
 $(function(){
