@@ -25,11 +25,11 @@
       <h1>Set your Escape to some music:</h1>
     </div>
     <div class="field">
-      <p>Current location:</p>
+      <p class="label">Current location:</p>
       <p id="current_location"><%= @location.city %>, <%= @location.state %></p>
     </div>
     <div class="field">
-      <p>Your escape:</p>
+      <p class="label">Your escape:</p>
       <%= select_tag "escape_id", options_for_select([["Choose your escape", ""]]+ Escape.active.collect {|escape| [ escape.title, escape.id ] }), :class=>'chzn-select', :data => { :placeholder => "Find escapes!" } %>
     </div>
     <div class="field">
