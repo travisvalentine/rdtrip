@@ -83,7 +83,7 @@ select#escape_id { width: 100%; }
 
 #votes { margin: 10px 0; padding: 0;
   a { display:inline-block; margin: 10px 0; width: 45%;
-    &:first-child { margin-right: 20px; }
+    &#upvote { margin-right: 20px; }
     img { height: 40px; padding: 10px 35px; cursor: pointer; border-radius: 5px; border: 0; background: url("http://www.hungryacademy.com/images/noise.png") repeat top left, -webkit-linear-gradient(#FF382E, #FF5147, #FF382E); }
   }
 }

@@ -13,7 +13,7 @@ Roadtrip::Application.routes.draw do
   resource :escape_picker, :controller => "escape_picker", :path => "escape_picker", :only => [:create]
 
   resources :songs, :only => :index
-  resources :escapes, :only => [:index, :show]
+  resources :escapes, :only => [:index, :show, :update]
 
   match "auth/linkedin/callback", :to => "sessions#create"
 

@@ -80,8 +80,9 @@
       </div>
     </div>
     <div id="votes">
-      <%= link_to image_tag("love.png"), escape_path(@escape, :upvotes => true), :method => :put %>
-      <%= link_to image_tag("dislike.png"), escape_path(@escape, :downvotes => true), :method => :put %>
+      <h1><%= @escape.votes %></h1>
+      <%= link_to image_tag("love.png"), escape_path(@escape, :upvotes => true), :id => "upvote", :method => :put, :remote => true %>
+      <%= link_to image_tag("dislike.png"), escape_path(@escape, :downvotes => true), :id => "downvote", :method => :put, :remote => true %>
     </div>
   </div>
   <% else %>

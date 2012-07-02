@@ -2,10 +2,12 @@ class EscapesController < ApplicationController
 
   def update
     @escape = Escape.find(params[:id])
-    if current_user
-      express_desire_for_escape(@escape.id) if params[:upvote]
-      express_disdain_for_escape(@escape.id) if params[:downvote]
+    if params[:upvotes]
+      @escape.add_vote
+    elsif params[:downvotes]
+      @escape.add_downvote
     end
+    redirect_to escape_path(@escape)
   end
 
   def index

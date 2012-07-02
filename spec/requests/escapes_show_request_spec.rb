@@ -14,8 +14,19 @@ describe "Escapes show request" do
 
   let!(:unique_songs) { [unique_song, unique_song2, unique_song3, unique_song4] }
 
+  let!(:client) { Nestling.new("123") }
+
+  let!(:nestling_response) { 
+    [{:foreign_ids=>[{"catalog"=>"rdio-us-streaming", 
+    "foreign_id"=>"rdio-us-streaming:song:t123456"}], 
+    :artist_id=>"AJFOE813981ALJKL",
+    :id=>"OIWJF13890JOWI", 
+    :artist_name=>"Notorious BIG", 
+    :title=>"Juicy"}] }
+
 	context "when I am redirected from escapes index" do
     before(:each) do
+      Nestling::Playlist.any_instance.stub(:static).and_return(nestling_response)
       login
       visit escapes_path
       page.select("Testing Specs", :from => "escape_id")
@@ -23,13 +34,16 @@ describe "Escapes show request" do
     end
 
     it "takes me to an escape for the category I select" do
-      current_path.should have_content("Testing Specs")
+      current_path.should == escape_path(escape)
+      page.should have_content("Testing Specs")
     end
 
   end
 
   context "when I am logged in and looking at an escape" do
+
     before(:each) do
+      Nestling::Playlist.any_instance.stub(:static).and_return(nestling_response)
       login
       visit escape_path(escape)
     end
@@ -53,10 +67,12 @@ describe "Escapes show request" do
       end
     end
 
-    it "creates a playlist for the escape" do
-
+    it "shows links to let me indicate whether I like an escape based on the music" do
+      within("#votes") do
+        find("a#upvote").should be_visible
+        find("a#downvote").should be_visible
+      end
     end
-
   end
 
 end

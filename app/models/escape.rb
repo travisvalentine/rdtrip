@@ -1,6 +1,6 @@
 class Escape < ActiveRecord::Base
   attr_accessible :location, :phone, :price,
-                  :street, :title, :upvotes, :downvotes
+                  :street, :title, :upvotes, :downvotes, :votes
 
   after_create :find_nearest_metro
 
@@ -41,7 +41,18 @@ class Escape < ActiveRecord::Base
       votes = 1
     elsif vote_tally >= 20
       votes = 20
+    else
+      votes = vote_tally
     end
   end
 
+  def add_vote
+    self.upvotes += 1
+    save
+  end
+
+  def add_downvote
+    self.downvotes += 1
+    save
+  end
 end

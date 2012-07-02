@@ -67,7 +67,7 @@ describe Escape do
 
   describe "#votes" do
     it "calculates the difference in upvotes and downvotes for an escape" do
-      raise escape_city.votes.inspect
+      escape_city.votes.should == 2
     end
 
     it "defaults to 1 if the difference is less than or equal to 1" do
@@ -76,6 +76,18 @@ describe Escape do
 
     it "defaults to 20 if the difference is greater than or equal to 20" do
       escape.votes.should == 20
+    end
+  end
+
+  describe "#add_vote" do
+    it "adds 1 to an instance's upvotes attribute" do
+      expect{escape.add_vote}.to change{escape.upvotes}.by(1)
+    end
+  end
+
+  describe "#add_downvote" do
+    it "adds 1 to an instance's downvotes attribute" do
+      expect{escape.add_downvote}.to change{escape.downvotes}.by(1)
     end
   end
 
