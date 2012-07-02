@@ -1,5 +1,6 @@
 class Escape < ActiveRecord::Base
-  attr_accessible :location, :phone, :price, :street, :title, :upvotes, :downvotes
+  attr_accessible :location, :phone, :price,
+                  :street, :title, :upvotes, :downvotes
 
   after_create :find_nearest_metro
 
@@ -8,7 +9,8 @@ class Escape < ActiveRecord::Base
   has_one :playlist
 
   def self.active
-    where("expiration > ? OR expiration LIKE ?", Time.now.strftime("%B %d, %Y").to_date, "")
+    where("expiration > ? OR expiration LIKE ?",
+      Time.now.strftime("%B %d, %Y").to_date, "")
   end
 
   def find_nearest_metro
