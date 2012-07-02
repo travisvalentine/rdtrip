@@ -11,12 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120701131855) do
+ActiveRecord::Schema.define(:version => 20120702233516) do
 
   create_table "escapes", :force => true do |t|
     t.string   "title"
     t.string   "location"
-    t.text     "details",       :limit => 255
+    t.text     "details"
     t.string   "price"
     t.string   "phone"
     t.string   "street"
@@ -28,10 +28,10 @@ ActiveRecord::Schema.define(:version => 20120701131855) do
     t.float    "longitude"
     t.string   "nearest_metro"
     t.string   "country"
-    t.datetime "created_at",                                  :null => false
-    t.datetime "updated_at",                                  :null => false
-    t.integer  "upvotes",                      :default => 1
-    t.integer  "downvotes",                    :default => 1
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+    t.integer  "upvotes",       :default => 1
+    t.integer  "downvotes",     :default => 1
   end
 
   create_table "lastfm_auth_tokens", :force => true do |t|
@@ -68,10 +68,10 @@ ActiveRecord::Schema.define(:version => 20120701131855) do
   create_table "popular_songs", :force => true do |t|
     t.string   "artist"
     t.string   "title"
-    t.text     "url",        :limit => 255
+    t.text     "url"
     t.integer  "metro_id"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "rdio_tracks", :force => true do |t|
@@ -99,10 +99,10 @@ ActiveRecord::Schema.define(:version => 20120701131855) do
   create_table "unique_songs", :force => true do |t|
     t.string   "artist"
     t.string   "title"
-    t.text     "url",        :limit => 255
+    t.text     "url"
     t.integer  "metro_id"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
