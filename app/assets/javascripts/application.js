@@ -15,6 +15,11 @@
 //= require jquery.rdio
 //= require rdioplayer
 //= require chosen-jquery
+//= require mapped_escapes
+//= require raphael-min
+//= require raphael-zpd
+//= require world_1000
+
 
 $(function(){
   $('.flash-notice').delay(1600).slideToggle(200);
