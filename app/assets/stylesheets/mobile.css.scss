@@ -1,0 +1,179 @@
+/*------------GENERAL------------*/
+
+body { margin: 0; margin-bottom: 25px; padding: 0; background-color: #F8F8F8; font-family: "Lucida Grande", "Bitstream Vera Sans", "Verdana"; font-size: 13px; color: #333; }
+
+h1 { font-size: 28px; color: #000; }
+
+a { color: #03c; }
+
+.italics { font-style: italic; }
+
+::selection { background: #CEE3E8; }
+
+::-moz-selection { background: #CEE3E8; }
+
+div#inner { border-top: 1px solid #fff; }
+
+.group:after { visibility: hidden; display: block; content: ""; clear: both; height: 0; }
+
+* html .group             { zoom: 1; } /* IE6 */
+
+*:first-child+html .group { zoom: 1; } /* IE7 */
+
+/*------------HEADER-------------*/
+
+header { position: relative; border: 1px solid #D9D9D9; -webkit-box-shadow: rgba(0, 0, 0, 0.099219) 0px .5px 5px; -moz-box-shadow: rgba(0, 0, 0, 0.099219) 0px .5px 5px; -o-box-shadow: rgba(0, 0, 0, 0.099219) 0px .5px 3px; box-shadow: rgba(0, 0, 0, 0.099219) 0px .5px 3px; }
+
+header #header_content { height: 60px; width: 1040px; margin: 0 auto; }
+
+#logo { top: 2px; position: absolute; overflow: hidden; padding: 0; width: 130px; height: 50px; }
+
+#logo a { font-family: 'Lilita One', cursive; font-size: 46px; font-weight: 600; color: #FF817A; text-decoration: none; position: absolute; height: 50px; width: 130px; background-position: left top; background-repeat: no-repeat; -webkit-transition: all .3s linear; }
+
+#logo a:hover { color: #FF6961; }
+
+#login { float:right; padding: 20px 0; }
+
+#login p { margin: 0; }
+
+#login ul { padding: 0; margin: 0; }
+
+#login li { width: auto; display: inline-block; padding: 0; list-style:none; font-size:9pt; }
+
+#login li.divider { width: 1px; height: 20px; margin: 0 9px; overflow: hidden; background-color: #D9D9D9; border-right: 1px solid #fff; }
+
+#login li a { text-decoration: none; color: #6666FF; font-weight: 600; }
+
+#login li a:hover { text-decoration: underline; }
+
+#login #user_image img { height: 25px; }
+
+#login li.text { vertical-align: 7px; }
+
+/*-----------CONTAINER------------*/
+
+.flash-notice { width: 1040px; margin: 0 auto; padding: 10px; position: absolute; top: 62px; background-color: #FFFEE0; -webkit-border-bottom-right-radius: 8px; -webkit-border-bottom-left-radius: 8px; -moz-border-radius-bottomright: 8px; -moz-border-radius-bottomleft: 8px; border-bottom-right-radius: 8px; border-bottom-left-radius: 8px; margin-left: -10px; border: 1px solid #FBEED5; color: #C09853; }
+
+.container { background-color: #F8F8F8; width: 1040px; margin: 0px 0 30px; margin-left: auto; margin-right: auto; min-height: 567px; }
+
+.container h1 { padding: 5px 0; margin: 0; }
+
+.container p { padding: 3px 0 3px; margin: 0; }
+
+#content { padding-top: 30px; }
+
+/*-------------FOOTER-------------*/
+
+footer { clear: both; border-top: 1px solid #D9D9D9; }
+
+footer #inner #footer_content { width: 1040px; margin: 0 auto; margin-top: 8px;}
+
+footer #inner #footer_content a { color: #B3B3B3; font-size: 12px; text-decoration: none; font-weight: 600; -webkit-transition: all .3s linear; }
+
+footer #inner #footer_content a:hover { color: #FF6961; }
+
+/*-------------MOBILE-------------*/
+
+.mobile-container, header #header_content, .flash-notice, footer #inner #footer_content { width: 400px; margin: 0 auto; }
+
+/*------------ESCAPES-------------*/
+
+#escape_select { width: 500px; height: auto; margin: 30px auto 0; border: 1px solid #ccc; padding: 20px; -webkit-border-radius: 8px; -moz-border-radius: 8px; border-radius: 8px; 
+  h1 { padding: 5px 0 15px; }
+}
+
+#escape_selector button[type="submit"] { width: 100%; margin-top: 10px; padding: 15px 20px; cursor: pointer; border-radius: 5px; border: 0; background: url("http://www.hungryacademy.com/images/noise.png") repeat top left, -webkit-linear-gradient(#FF382E, #FF5147, #FF382E); color: #fff; font-size: 18px; border: 1px solid #E00B00; border-bottom: 1px solid gray;
+  &:hover { background-color: #E00B00; }
+  &:active { background: url("http://www.hungryacademy.com/images/noise.png") repeat top left, -webkit-linear-gradient(#FF2014, #FF382E, #FF5147); -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05); -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05); box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05); }
+}
+
+#escape_selector div.field { margin: 5px 0; width: 100%; display: inline-block; 
+  input[type="text"] { padding: 5px; width: 275px; font-size: 14px; margin: 3px 0; -moz-box-shadow: inset 0 8px 8px -8px #696868, inset 0 -8px 8px -8px #696868; -webkit-box-shadow: inset 0 8px 8px -8px #696868, inset 0 -8px 8px -8px #696868; box-shadow: inset 0 8px 8px -8px #696868, inset 0 -8px 8px -8px #696868; 
+    &:focus { border-color:rgba(35,146,231,0.8); outline:0; outline:thin dotted \9; -webkit-box-shadow:inset 0 1px 3px rgba(0,0,0,0.075),0 0 12px rgba(82,168,236,0.6) !important; -moz-box-shadow:inset 0 1px 3px rgba(0,0,0,0.075),0 0 12px rgba(82,168,236,0.6) !important; box-shadow:inset 0 1px 3px rgba(0,0,0,0.075),0 0 12px rgba(82,168,236,0.6) !important; }
+    &#state { width: 100px; }
+  }
+  p.label { font-weight: 600; }
+  p#current_location { font-size: 13px; text-transform: uppercase; }
+}
+
+#escape_info { padding: 10px 0;
+  span#details a { text-decoration: none; margin-left: 8px; }
+}
+
+#music { margin-top: 20px; }
+
+select#escapes { width: inherit; }
+
+span.IN-widget { margin-bottom: 10px; }
+
+select#escape_id { width: 100%; }
+
+#lastfm_results { width: 450px; float: left;
+  div.songs { height: 400px; overflow-y: scroll; margin: 15px 0;
+    p { font-weight: 600; }
+    table { width: 100%;
+      thead {
+        th { text-align: left; font-size: 15px; }    
+      }
+      tbody {
+        tr { font-size: 14px;
+          td { padding: 3px 0; }
+          td:first-child { width: 140px; }
+          &:nth-child(odd) {
+            background-color: #EEEEEE;
+          }
+          &:nth-child(even) {
+            background-color: #FCFCFC;
+          }
+          &:hover {
+            background-color: #C9C9C9;
+            color: #fff;
+            cursor: pointer;
+          }
+        }
+        .lastfm-link {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  .popular { display: none; }
+}
+
+#current_track { padding: 15px; border: 1px solid #ccc; border-radius: 3px;
+  table#playing { width: 100%;
+    tr {
+      td.play-label { width: 30px; color: #8C8C8C; }
+      td:last-child { width: 150px; 
+        span { width: inherit; font-weight: 600; }
+      }
+    }
+  }
+  #controls { width: 130px; margin: 10px auto 0;
+    img { height: 25px; margin: 0 15px 0 0;
+      &#pause, &#play { margin: 0 15px 0 0; }
+      &#next { margin: 0 0 0 15px; }
+    }
+  }
+}
+
+#votes { margin: 10px 0; padding: 0;
+  a { display:inline-block; margin: 10px 0; width: 45%;
+    &#upvote { margin-right: 20px; }
+    img { height: 40px; padding: 10px 35px; cursor: pointer; border-radius: 5px; border: 0; background: url("http://www.hungryacademy.com/images/noise.png") repeat top left, -webkit-linear-gradient(#FF382E, #FF5147, #FF382E); }
+  }
+}
+
+#rdio_playlist { width: 250px; float: left; margin: 25px 0 0 200px; }
+
+/*-----------RAPHAEL-MAPS------------*/
+
+#welcome { margin: 10px auto 30px;
+  p { font-size: 22px; color: #1A1A1A; }
+}
+
+/*-------------SHOUTOUTS-------------*/
+
+ul { padding: 0 0 0 20px;
+	li { list-style-type: none; padding: 5px 0; }
+}

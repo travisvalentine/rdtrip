@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>rdtrip</title>
+  <%= stylesheet_link_tag    "mobile", :media => "all" %>
+  <link href='http://fonts.googleapis.com/css?family=Lilita+One' rel='stylesheet' type='text/css'>
+  <%= javascript_include_tag "application" %>
+  <%= yield(:header) %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="user-scalable=no,width=device-width"></meta>
+</head>
+<body>
+  <header>
+    <div id="header_content">
+    <% if current_user %>
+      <%= render "layouts/mobile_in" %>
+    <% else %>
+      <%= render "layouts/mobile_out" %>
+    <% end %>
+    </div>
+  </header>
+  <div class="mobile-container group">
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, :class => "flash-#{name}" if msg.is_a?(String) %>
+    <% end %>
+    <div id="content">
+      <%= yield %>
+    </div>
+  </div>
+  <footer>
+    <div id="inner">
+      <div id="footer_content">
+        <%= link_to "Shout outs", shoutouts_path %>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

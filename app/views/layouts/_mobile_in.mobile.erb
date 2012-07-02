@@ -1,0 +1,16 @@
+<div id="logo"><a href="/">rdtrip</a></div>
+<div id="login">
+	<ul>
+		<li id="user_image">
+			<%= image_tag(current_user.image) %>
+		</li>
+		<li class="text">
+			<%= current_user.name %>
+		</li>
+		<li class="divider">
+		</li>
+		<li class="text">
+			<%= link_to "Log out", logout_path %>
+		</li>
+	</ul>
+</div>
