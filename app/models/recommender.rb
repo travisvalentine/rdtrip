@@ -15,12 +15,12 @@ class Recommender < ActiveRecord::Base
   def self.parse_response(rec)
     rdio_tracks = []
     rec.each do |track|
-      t = RdioTrack.new(
+      track = RdioTrack.new(
         artist: track[:artist_name],
         title: track[:title],
         rdio_id: track[:foreign_ids].first["foreign_id"].split(":").last
         )
-      rdio_tracks << t
+      rdio_tracks << track
     end
     rdio_tracks
   end

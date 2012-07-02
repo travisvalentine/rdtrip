@@ -10,6 +10,7 @@
  *
  *= require_self
  *= require_tree .
+ *= require chosen
 */
 
 /*------------GENERAL------------*/
@@ -22,6 +23,10 @@ a { color: #03c; }
 
 .italics { font-style: italic; }
 
+::selection { background: #CEE3E8; }
+
+::-moz-selection { background: #CEE3E8; }
+
 div#inner { border-top: 1px solid #fff; }
 
 /*------------HEADER-------------*/
@@ -30,29 +35,41 @@ header { position: relative; border: 1px solid #D9D9D9; -webkit-box-shadow: rgba
 
 header #header_content { height: 60px; width: 1040px; margin: 0 auto; }
 
-#logo { top: 5px; position: absolute; overflow: hidden; padding: 0; width: 130px; height: 50px; }
+#logo { top: 2px; position: absolute; overflow: hidden; padding: 0; width: 130px; height: 50px; }
 
 #logo a { font-family: 'Lilita One', cursive; font-size: 46px; font-weight: 600; color: #FF817A; text-decoration: none; position: absolute; height: 50px; width: 130px; background-position: left top; background-repeat: no-repeat; -webkit-transition: all .3s linear; }
 
 #logo a:hover { color: #FF6961; }
 
-#login { float:right; margin: 0; }
+#login { float:right; padding: 20px 0; }
 
-#login a { font-weight:bold; }
+#login p { margin: 0; }
 
-#login li { list-style:none; font-size:9pt; }
+#login ul { padding: 0; margin: 0; }
+
+#login li { width: auto; display: inline-block; padding: 0; list-style:none; font-size:9pt; }
+
+#login li.divider { width: 1px; height: 20px; margin: 0 9px; overflow: hidden; background-color: #D9D9D9; border-right: 1px solid #fff; }
+
+#login li a { text-decoration: none; color: #6666FF; font-weight: 600; }
+
+#login li a:hover { text-decoration: underline; }
+
+#login #user_image img { height: 25px; }
+
+#login li.text { vertical-align: 7px; }
 
 /*-----------CONTAINER------------*/
 
 .flash-notice { width: 1040px; margin: 0 auto; padding: 10px; position: absolute; top: 62px; background-color: #FFFEE0; -webkit-border-bottom-right-radius: 8px; -webkit-border-bottom-left-radius: 8px; -moz-border-radius-bottomright: 8px; -moz-border-radius-bottomleft: 8px; border-bottom-right-radius: 8px; border-bottom-left-radius: 8px; margin-left: -10px; border: 1px solid #FBEED5; color: #C09853; }
 
-.container { background-color: #F8F8F8; width: 1040px; margin: 0px 0 30px; margin-left: auto; margin-right: auto; min-height: 637px; }
+.container { background-color: #F8F8F8; width: 1040px; margin: 0px 0 30px; margin-left: auto; margin-right: auto; min-height: 567px; }
 
 .container h1 { padding: 5px 0; margin: 0; }
 
 .container p { padding: 3px 0 3px; margin: 0; }
 
-#content { margin-top: 30px; }
+#content { padding-top: 30px; }
 
 /*-------------FOOTER-------------*/
 

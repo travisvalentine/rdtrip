@@ -1,6 +1,11 @@
 <%= content_for(:header) do %>
-  <%= javascript_include_tag "mapped_escapes" %>
   <script type="text/javascript">
+    $(function(){
+      $(".chzn-select").chosen()
+    });
+    $(function(){
+      $("#escape_id_chzn").addClass("field");
+    });
     $(function(){
       $("form#song_selector").val("");
     });
@@ -13,9 +18,22 @@
     });
   </script>
 <% end %>
+
 <div id="escape_select">
-<%= form_tag url_for("/escapes"), :method => 'get', :id => "escape_selector" do %>
-  <%= select_tag "escape_id", options_for_select([["Choose your escape", ""]]+ Escape.active.collect {|escape| [ escape.title, escape.id ] } ) %>
-  <%= submit_tag "GO", :id => "submit_form" %>
-<% end %>
+  <%= form_tag url_for("/escapes"), :method => 'get', :id => "escape_selector" do %>
+    <div>
+      <h1>Set your Escape to some music:</h1>
+    </div>
+    <div class="field">
+      <p>Current location:</p>
+      <%= @location.city %>, <%= @location.state %>
+    </div>
+    <div class="field">
+      <p>Your escape:</p>
+      <%= select_tag "escape_id", options_for_select([["Choose your escape", ""]]+ Escape.active.collect {|escape| [ escape.title, escape.id ] }), :class=>'chzn-select', :data => { :placeholder => "Find escapes!" } %>
+    </div>
+    <div class="field">
+      <%= button_tag "GO", :type => :submit, :id => "submit_form" %>
+    </div>
+  <% end %>
 </div>
