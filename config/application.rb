@@ -78,7 +78,5 @@ module Roadtrip
         :request_specs => true
       g.fixture_replacement :factory_girl, :dir => "spec/factories"
     end
-
-    config.assets.initialize_on_precompile = false
   end
 end
