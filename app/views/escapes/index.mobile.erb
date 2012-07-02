@@ -1,1 +1,29 @@
-MOBILE
+<%= content_for(:header) do %>
+  <script type="text/javascript">
+    $(function(){
+      $(".chzn-select").chosen()
+    });
+    $(function(){
+      $("#escape_id_chzn").addClass("field");
+    });
+  </script>
+<% end %>
+
+<div id="escape_select">
+  <%= form_tag url_for("/escape_picker"), :method => 'post', :id => "escape_selector" do %>
+    <div>
+      <h1>Set your Escape to some music:</h1>
+    </div>
+    <div class="field">
+      <p class="label">Current location:</p>
+      <p id="current_location"><%= @location.city %>, <%= @location.state %></p>
+    </div>
+    <div class="field">
+      <p class="label">Your escape:</p>
+      <%= select_tag "escape_id", options_for_select([["Choose your escape", ""]]+ Escape.active.collect {|escape| [ escape.title, escape.id ] }), :class=>'chzn-select', :data => { :placeholder => "Find escapes!" } %>
+    </div>
+    <div class="field">
+      <%= button_tag "GO", :type => :submit, :id => "submit_form" %>
+    </div>
+  <% end %>
+</div>
