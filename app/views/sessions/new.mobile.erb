@@ -1,19 +1,4 @@
-<%= content_for(:header) do %>
-  <%= javascript_include_tag "mapped_escapes_mobile", "raphael-min", "raphael-zpd", "world_570" %>
-<% end %>
 <div id="welcome">
   <p>Enhance your escape with music.</p>
   <p><%= link_to image_tag("js-signin.png"), "/auth/linkedin", :id => "oauth_linkedin" %></p>
-</div>
-<div id="holder_570" style="position:relative;">
-  <% Escape.all.each do |escape| %>
-    <%= content_tag(:div, :class => "city_hover", :id => "#{escape.city_escaped}") do %>
-      <%= content_tag(:span, :class => "c_label") do %>
-        <%= content_tag(:strong) do %>
-          <p class="main-info"><%= "#{escape.title} - #{escape.price}" %></p>
-          <p class="escape-details"><%= escape.city %>, <%= escape.state %></p>
-        <% end %>
-      <% end %>
-    <% end %>
-  <% end %>
 </div>
