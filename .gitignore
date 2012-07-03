@@ -16,4 +16,3 @@ rerun.txt
 pickle-email-*.html
 coverage
 /config/initializers/auth_keys.rb
-/config/initializers/rdio_nestling.rb
