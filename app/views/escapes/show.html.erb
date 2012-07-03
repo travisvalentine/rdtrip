@@ -11,6 +11,10 @@
         count += 1;
         $('#vote_count').text(count);
       });
+      $('#downvote').click(function(){
+        count -= 1;
+        $('#vote_count').text(count);
+      });
     });
   </script>
   <%= playback_token_tag %>
