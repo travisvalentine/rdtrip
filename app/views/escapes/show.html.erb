@@ -5,7 +5,15 @@
         $('.popular').slideToggle();
       });
     });
+    $(function(){
+      var count = parseInt($("#vote_count").text());
+      $('#upvote').click(function(){
+        count += 1;
+        $('#vote_count').text(count);
+      });
+    });
   </script>
+  <%= playback_token_tag %>
 <% end %>
 <div id="escape_info">
   <h1><%= @escape.title %></h1>
@@ -80,7 +88,7 @@
       </div>
     </div>
     <div id="votes">
-      <h1><%= @escape.votes %></h1>
+      <p id="vote_count"><%= @escape.true_votes %></p>
       <%= link_to image_tag("love.png"), escape_path(@escape, :upvotes => true), :id => "upvote", :method => :put, :remote => true %>
       <%= link_to image_tag("dislike.png"), escape_path(@escape, :downvotes => true), :id => "downvote", :method => :put, :remote => true %>
     </div>

@@ -46,6 +46,10 @@ class Escape < ActiveRecord::Base
     end
   end
 
+  def true_votes
+    upvotes - downvotes
+  end
+
   def add_vote
     self.upvotes += 1
     save

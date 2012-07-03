@@ -7,7 +7,9 @@ class EscapesController < ApplicationController
     elsif params[:downvotes]
       @escape.add_downvote
     end
-    redirect_to escape_path(@escape)
+    respond_to do |format|
+      format.js { }
+    end
   end
 
   def index
