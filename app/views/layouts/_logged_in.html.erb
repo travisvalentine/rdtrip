@@ -2,7 +2,9 @@
 <div id="login">
 	<ul>
 		<li id="user_image">
-			<%= image_tag(current_user.image) %>
+			<% if current_user.image %>
+				<%= image_tag(current_user.image) %>
+			<% end %>
 		</li>
 		<li class="text">
 			<%= current_user.name %>
