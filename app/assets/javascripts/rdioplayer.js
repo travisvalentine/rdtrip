@@ -37,9 +37,9 @@ var duration = 1; // track the duration of the currently playing track
       }
     });
     // for localhost
-    // $('#api').rdio('GAlNi78J_____zlyYWs5ZG02N2pkaHlhcWsyOWJtYjkyN2xvY2FsaG9zdEbwl7EHvbylWSWFWYMZwfc=');
+    $('#api').rdio('GAlNi78J_____zlyYWs5ZG02N2pkaHlhcWsyOWJtYjkyN2xvY2FsaG9zdEbwl7EHvbylWSWFWYMZwfc=');
     // for rdtrip.in
-    $('#api').rdio('GAlP8iSV_____zdqN3F4NHIzM2NmenI3ejlqc3Y4d2Z2ZXJkdHJpcC5pbhfQJD-6b9H0yVhc99tBMg8=');
+    // $('#api').rdio('GAlP8iSV_____zdqN3F4NHIzM2NmenI3ejlqc3Y4d2Z2ZXJkdHJpcC5pbhfQJD-6b9H0yVhc99tBMg8=');
 
     $('#play').click(function() { $('#api').rdio().play(); });
     $('#pause').click(function() { $('#api').rdio().pause(); });
