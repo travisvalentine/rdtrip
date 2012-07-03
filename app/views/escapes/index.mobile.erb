@@ -1,9 +1,5 @@
 <%= content_for(:header) do %>
-  <%= javascript_include_tag "chosen-jquery" %>
   <script type="text/javascript">
-    $(function(){
-      $(".chzn-select").chosen()
-    });
     $(function(){
       $("#escape_id_chzn").addClass("field");
     });
@@ -17,6 +13,8 @@
     </div>
     <div class="field">
       <p class="label">Current location:</p>
+      <%= hidden_field_tag "city", @location.city %>
+      <%= hidden_field_tag "state", @location.state %>
       <p id="current_location"><%= @location.city %>, <%= @location.state %></p>
     </div>
     <div class="field">

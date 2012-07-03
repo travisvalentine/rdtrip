@@ -13,21 +13,12 @@
       });
     });
   </script>
-  <script src="/assets/jquery.js?body=1" type="application/javascript"></script>
-  <script src="/assets/jquery_ujs.js?body=1" type="application/javascript"></script>
-  <script src="/assets/jquery.rdio.js?body=1" type="application/javascript"></script>
-  <script src="/assets/rdioplayer.js?body=1" type="application/javascript"></script>
-  <script src="/assets/lib/abstract-chosen.js?body=1" type="application/javascript"></script>
-  <script src="/assets/lib/select-parser.js?body=1" type="application/javascript"></script>
-  <script src="/assets/chosen.jquery.js?body=1" type="application/javascript"></script>
-  <script src="/assets/chosen-jquery.js?body=1" type="application/javascript"></script>
-  <script src="/assets/application.js?body=1" type="application/javascript"></script>
   <%= playback_token_tag %>
 <% end %>
 <div id="escape_info">
   <h1><%= @escape.title %></h1>
   <p><%= @escape.location %>, <%= @escape.price %><span id="details"><%= link_to "Full Details", "#", :title => "#{@escape.details}" %></span></p>
-  <p><%= @escape.street %> &bull; <%= @escape.city %> &bull; <%= @escape.state %></p>
+  <p><%= @escape.street %> &bull; <%= @escape.city %> &bull; <%= @escape.state %> &bull; <%= @distance.round %> miles away</p>
 </div>
 <div id="music" class="group">
   <div id="lastfm_results">

@@ -11,41 +11,28 @@
   <h2><%= @escape.title %></h2>
   <p><%= @escape.location %>, <%= @escape.price %><span id="details"><%= link_to "Full Details", "#", :title => "#{@escape.details}" %></span></p>
   <p><%= @escape.street %></p>
-  <p><%= @escape.city %> &bull; <%= @escape.state %></p>
+  <p><%= @escape.city %> &bull; <%= @escape.state %> &bull; <%= @distance.round %> miles away</p>
 </div>
 <div id="music" class="group">
-  <div id="rdio_playlist">
-  <% if current_user && @metro.unique_songs != [] %>
-    <%= content_tag "div", :id => "tracks", :data => {:tracks => @playlist.rdio_tracks } do %>
-    <% end %>
-    <div id="api">
-    </div>
-    <div id="current_track">
-      <table id="playing">
+  <div id="lastfm_results">
+    <p>Here are some songs Last.fm users from <%= @metro.name %> like to listen to. Browse while you listen to the rdio playlist on the right:</p>
+    <div class="songs unique">
+      <table>
+        <thead>
+          <tr>
+            <th>Artist</th>
+            <th>Song</th>
+          </tr>
+        </thead>
         <tbody>
+          <% @metro.unique_songs.each do |song| %>
           <tr>
-            <td class="play-label">Artist:</td>
-            <td><span id="artist"></span></td>
+            <td><%= song.artist %></td>
+            <td><%= link_to song.title, song.url, :target => "_blank", :class => "lastfm-link" %></td>
           </tr>
-          <tr>
-            <td class="play-label">Title:</td>
-            <td><span id="track"></span></td>
-          </tr>
+          <% end %>
         </tbody>
       </table>
-      <div id="controls">
-        <%= link_to image_tag("previous.png"), "#", :id => "previous" %>
-        <%= link_to image_tag("play.png"), "#", :id => "play" %>
-        <%= link_to image_tag("pause.png"), "#", :id => "pause" %>
-        <%= link_to image_tag("next.png"), "#", :id => "next" %>
-      </div>
-    </div>
-    <div id="votes">
-      <%= link_to image_tag("love.png"), escape_path(@escape, :upvotes => true), :id => "upvote", :method => :put, :remote => true %>
-      <%= link_to image_tag("dislike.png"), escape_path(@escape, :downvotes => true), :id => "downvote", :method => :put, :remote => true %>
     </div>
   </div>
-  <% else %>
-  <p>Log in for some playlists!</p>
-  <% end %>
 </div>
