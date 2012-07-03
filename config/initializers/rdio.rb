@@ -1,0 +1,1 @@
+RDIO = RdioApi.new(consumer_key: "7j7qx4r33cfzr7z9jsv8wfve", consumer_secret: "AVP7E2Ybnd")

@@ -9,6 +9,7 @@ gem 'nokogiri'
 gem 'omniauth'
 gem 'omniauth-linkedin'
 gem 'rails', '3.2.3'
+gem 'rdio_api', git: 'https://github.com/anilv/rdio_api.git'
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'
