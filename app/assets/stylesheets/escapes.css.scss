@@ -86,6 +86,7 @@ select#escape_id { width: 100%; }
     &#upvote { margin-right: 20px; }
     img { height: 40px; padding: 10px 35px; cursor: pointer; border-radius: 5px; border: 0; background: url("http://www.hungryacademy.com/images/noise.png") repeat top left, -webkit-linear-gradient(#FF382E, #FF5147, #FF382E); }
   }
+  #vote_count { margin: 5px 0 0; }
 }
 
 #rdio_playlist { width: 250px; float: left; margin: 25px 0 0 200px; }

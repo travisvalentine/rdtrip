@@ -22,7 +22,11 @@
 <div id="escape_info">
   <h1><%= @escape.title %></h1>
   <p><%= @escape.location %>, <%= @escape.price %><span id="details"><%= link_to "Full Details", "#", :title => "#{@escape.details}" %></span></p>
-  <p><%= @escape.street %> &bull; <%= @escape.city %>, <%= @escape.state %> &bull; <%= @distance.round %> miles away</p>
+  <% if @distance.nan? %>
+    <p><%= @escape.street %> &bull; <%= @escape.city %>, <%= @escape.state %></p>
+  <% else %>
+    <p><%= @escape.street %> &bull; <%= @escape.city %>, <%= @escape.state %> &bull; <%= @distance.round %> miles away</p>
+  <% end %>
 </div>
 <div id="music" class="group">
   <div id="lastfm_results">
@@ -92,9 +96,9 @@
       </div>
     </div>
     <div id="votes">
-      <p id="vote_count"><%= @escape.true_votes %></p>
       <%= link_to image_tag("love.png"), escape_path(@escape, :upvotes => true), :id => "upvote", :method => :put, :remote => true %>
       <%= link_to image_tag("dislike.png"), escape_path(@escape, :downvotes => true), :id => "downvote", :method => :put, :remote => true %>
+      <h4 id="vote_count">Popularity: <%= @escape.true_votes %></h4>
     </div>
   </div>
   <% else %>

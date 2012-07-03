@@ -1,7 +1,7 @@
 class EscapesController < ApplicationController
+  before_filter :look_up_escape, :only => [:update, :show]
 
   def update
-    @escape = Escape.find(params[:id])
     if params[:upvotes]
       @escape.add_vote
     elsif params[:downvotes]
@@ -18,7 +18,6 @@ class EscapesController < ApplicationController
   end
 
   def show
-    @escape = Escape.find(params[:id])
     @distance = @escape.distance_to([params[:city],params[:state]])
     @metro = Metro.find_by_name(@escape.nearest_metro)
     if @metro.unique_songs != []
@@ -38,4 +37,9 @@ class EscapesController < ApplicationController
                                             :votes     => escape.votes } }
   end
 
+private
+  def look_up_escape
+    @escape = Escape.find(params[:id])
+  end
+  
 end
