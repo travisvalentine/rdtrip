@@ -20,7 +20,7 @@ class EscapesController < ApplicationController
     @metro = Metro.find_by_name(@escape.nearest_metro)
     if @metro.unique_songs != []
       @artist = @metro.unique_songs.first.artist
-      @playlist = @escape.playlist ? @escape.playlist :
+      @playlist = @escape.playlist && @escape.playlist.any? ? @escape.playlist :
                   Playlist.build_from_artist(@artist, @escape)
     end
   end
