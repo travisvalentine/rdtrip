@@ -7,7 +7,7 @@ task :get_popular_songs_for_metro => :environment do
 
   Metro.all.each do |metro|
 
-    url = "http://ws.audioscrobbler.com/2.0/?method=geo.getmetrotrackchart&country=#{metro.country}&metro=#{metro.name}&api_key=8d19079968ad2b3850613fec62848790"
+    url = "http://ws.audioscrobbler.com/2.0/?method=geo.getmetrotrackchart&country=#{metro.country}&metro=#{metro.name}&api_key=#{LAST_FM_API_KEY}"
 
     doc = Nokogiri::HTML(open(URI.escape(url)))
 
