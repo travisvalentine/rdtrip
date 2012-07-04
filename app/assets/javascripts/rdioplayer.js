@@ -39,7 +39,7 @@ var duration = 1; // track the duration of the currently playing track
     // dynamically
     $('#api').rdio($("meta[name=playback_token]").attr('content'));
 
-    $('#api').rdio('GAlP8lMu_____zdqN3F4NHIzM2NmenI3ejlqc3Y4d2Z2ZXJkdHJpcC5pbkhv2qKgWy-Qpz-wPeC_zvI=');
+    // $('#api').rdio('GAlP8lMu_____zdqN3F4NHIzM2NmenI3ejlqc3Y4d2Z2ZXJkdHJpcC5pbkhv2qKgWy-Qpz-wPeC_zvI=');
 
     $('#play').click(function() { $('#api').rdio().play(); });
     $('#pause').click(function() { $('#api').rdio().pause(); });
