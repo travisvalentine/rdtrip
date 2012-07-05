@@ -6,6 +6,20 @@
     $(function(){
       $("#escape_id_chzn").addClass("field");
     });
+    $(function(){
+      $(document).ready(initiate_geolocation);
+    });
+    $(function(){  
+      $("#geo").click(initiate_geolocation);  
+    });
+    function initiate_geolocation() {  
+      navigator.geolocation.getCurrentPosition(handle_geolocation_query);  
+    }  
+
+    function handle_geolocation_query(position){
+      $('span#city').text(position.coords.latitude);
+      $('span#state').text(position.coords.latitude);
+    }  
   </script>
 <% end %>
 
@@ -15,13 +29,13 @@
       <h1>Set your Escape to some music:</h1>
     </div>
     <div class="field">
-      <p class="label">Current location:</p>
+      <p class="label">Current location <%= link_to image_tag("geo.png", :id => "geo"), "#", :id => "geo" %></p>
       <%= hidden_field_tag "city", @location.city %>
       <%= hidden_field_tag "state", @location.state %>
-      <p id="current_location"><%= @location.city %>, <%= @location.state %></p>
+      <p id="current_location"><span id="city"></span>, <span id="state"></span>
     </div>
     <div class="field">
-      <p class="label">Your escape:</p>
+      <p class="label">Your escape</p>
       <%= select_tag "escape_id", options_for_select([["Choose your escape", ""]]+ Escape.active.collect {|escape| [ escape.title, escape.id ] }), :class=>'chzn-select', :data => { :placeholder => "Find escapes!" } %>
     </div>
     <div class="field">
