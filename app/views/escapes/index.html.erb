@@ -17,9 +17,15 @@
     }  
 
     function handle_geolocation_query(position){
-      $('span#city').text(position.coords.latitude);
-      $('span#state').text(position.coords.latitude);
-    }  
+      var yahooID = $("meta[name=yahoo_id]").attr('content');
+      $.get('http://where.yahooapis.com/geocode?location=' + position.coords.latitude + ',+' + position.coords.longitude + '&gflags=R&J&appid=' + yahooID, function(data){
+        var xml = data;
+        var city = $(xml).find("city").text();
+        var state = $(xml).find("statecode").text();
+        $('span#city').text(city);
+        $('span#state').text(state);
+      });
+    }
   </script>
 <% end %>
 
