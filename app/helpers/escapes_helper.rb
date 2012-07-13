@@ -7,7 +7,7 @@ module EscapesHelper
     end
   end
 
-  def yahoo_app_id
+  def yahoo_id_tag
   	if Rails.env.production?
   		tag('meta', name: 'yahoo_id', content: ENV['YAHOO_GEO_ID'])
   	else
