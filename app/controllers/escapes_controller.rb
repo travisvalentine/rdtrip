@@ -18,7 +18,7 @@ class EscapesController < ApplicationController
   end
 
   def show
-    @distance = @escape.distance_to([params[:city],params[:state]])
+    @distance = @escape.distance_to(params[:city],params[:state])
     @metro = Metro.find_by_name(@escape.nearest_metro)
     if @metro.unique_songs != []
       @artist = @metro.unique_songs.first.artist
